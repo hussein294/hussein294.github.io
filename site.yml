@@ -1,0 +1,28 @@
+# Site-wide settings. Edit this file to change your name, links or contact details.
+
+name: Hussein Mohamed Al-Alfy
+short_name: Hussein Al-Alfy
+title: Senior Machine Learning Engineer and AI instructor
+location: Cairo, Egypt
+tagline: I build AI systems for clients and teach AI engineering.
+
+# The public address of the site. Change this when you switch to a custom domain.
+url: https://hussein294.github.io
+
+email: hussein.mohamed13429@gmail.com
+
+# Leave empty to keep the phone number off the site.
+# This repo is public, so anything written here is public too.
+phone: ""
+
+links:
+  linkedin: https://www.linkedin.com/in/hussein-mohamed-852261174/
+  github: https://github.com/hussein294
+  huggingface: https://huggingface.co/husseinMohamed
+  upwork: https://www.upwork.com/freelancers/~0116cdedb0df98b1cf
+
+# Where the "Register" buttons on the course pages go.
+ada:
+  name: ADA Egypt
+  full_name: ADA, the Academy of Digital Arts
+  url: https://linktr.ee/ada.egypt
