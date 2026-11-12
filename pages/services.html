@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}Services: AI engineering for clients | {{ site.name }}{% endblock %}
+{% block description %}Paid AI engineering services: RAG and LLM apps, document AI, Arabic speech AI, Python backends, AI features for existing products, and training. Fixed-price pilots or hourly.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Services · Work with me</p>
+    <h1>AI systems that hold up in production</h1>
+    <p class="lead">I am an AI engineer who also ships the production backend. I take on client projects as fixed-price pilots or hourly work, remotely, for clients anywhere.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Start a project</a>
+      <a class="btn btn-ghost" href="#how-i-work">How I work</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What I can build or fix for you</h2>
+    <ul class="cards two">
+      <li class="card">
+        <h3>RAG and LLM apps</h3>
+        <p>Assistants that answer from your own documents and data.</p>
+        <ul>
+          <li>Chat over your documents and data</li>
+          <li>Grounded answers that cite their sources</li>
+          <li>Fixes for chatbots that make things up</li>
+        </ul>
+      </li>
+      <li class="card">
+        <h3>Document AI</h3>
+        <p>Structured data out of the documents your business already has.</p>
+        <ul>
+          <li>PDFs, invoices and forms into clean JSON or Excel</li>
+          <li>A confidence score for every extracted field</li>
+          <li>Uncertain results routed to a person for review</li>
+        </ul>
+      </li>
+      <li class="card">
+        <h3>Arabic speech and language AI</h3>
+        <p>Arabic is my native language, and speech recognition is my research field.</p>
+        <ul>
+          <li>Speech-to-text for Arabic, including the Egyptian dialect</li>
+          <li>Voice-note transcription</li>
+          <li>Arabic chatbots</li>
+        </ul>
+      </li>
+      <li class="card">
+        <h3>Python backends</h3>
+        <p>The services your AI features run on.</p>
+        <ul>
+          <li>FastAPI services and API integrations</li>
+          <li>Background workers with Celery, RabbitMQ and Redis</li>
+          <li>Docker and Kubernetes deployment</li>
+          <li>Performance work and bug fixes</li>
+        </ul>
+      </li>
+      <li class="card">
+        <h3>AI inside an existing product</h3>
+        <p>AI features added to a product you already run.</p>
+        <ul>
+          <li>LLM API integration</li>
+          <li>Structured outputs and tool calling</li>
+          <li>Agents and guardrails</li>
+        </ul>
+      </li>
+      <li class="card">
+        <h3>Training and mentoring</h3>
+        <p>For teams and individuals.</p>
+        <ul>
+          <li>AI and machine learning training</li>
+          <li>Technical mentoring</li>
+          <li>Two public diplomas: <a href="{{ url('/courses/') }}">see the courses</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="how-i-work">
+  <div class="wrap">
+    <p class="kicker">How I work</p>
+    <h2>Small milestones and an early demo</h2>
+    <ol class="steps">
+      <li><b>Agree on the problem</b>I restate the problem and how we will measure success before I write any code.</li>
+      <li><b>Show a working demo early</b>The work is split into small milestones, and you see something running early.</li>
+      <li><b>Hand over maintainable code</b>You get clean, tested code and a README your team can maintain.</li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>Engagement</h2>
+      <ul>
+        <li><strong>Fixed-price pilot.</strong> A defined scope and a defined result, for a set price.</li>
+        <li><strong>Hourly.</strong> For ongoing work, fixes and advice.</li>
+        <li><strong>Remote.</strong> I work from Cairo with clients anywhere, and overlap fully with European working hours and US mornings.</li>
+        <li><strong>English or Arabic.</strong> I work in both.</li>
+      </ul>
+      <p>You can also hire me through my <a href="{{ site.links.upwork }}" rel="noopener">Upwork profile</a>.</p>
+    </div>
+    <aside class="panel">
+      <h2>Start a project</h2>
+      <p>Send me what you are building. I will reply with how I would approach it and a clear estimate.</p>
+      <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email me</a>
+      <p class="note" style="margin:0.8rem 0 0" dir="ltr">{{ site.email }}</p>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="kicker">Background</p>
+    <h2>What this is built on</h2>
+    <ul class="stats">
+      <li><b>Nearly 5 years</b><span>Shipping machine learning to production for enterprise and international clients.</span></li>
+      <li><b>6 languages</b><span>In one multilingual speech-recognition system built for an international client.</span></li>
+      <li><b>100K+ documents a day</b><span>Through a document-extraction platform I architected, at sub-second latency.</span></li>
+    </ul>
+    <p class="actions"><a href="{{ url('/projects/') }}">Selected projects</a> · <a href="{{ url('/about/') }}">Experience and education</a></p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Free learning: interview preparation for AI engineers | {{ site.name }}{% endblock %}
+{% block description %}Free interview preparation for AI engineers: a RAG interview handbook, crash courses on multi-agent systems, deployment and agent tooling, and short engineering Q&A.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Free learning</p>
+    <h1>Free interview preparation for AI engineers</h1>
+    <p class="lead">Everything here is free to read. I wrote these while preparing for senior AI engineering interviews: full answers, the follow-up questions that usually come next, and the sources behind the numbers.</p>
+    <p class="note">This material is separate from my <a href="{{ url('/courses/') }}">paid diplomas</a>. To follow new posts, use the <a href="{{ url('/feed.xml') }}">RSS feed</a> or follow me on <a href="{{ site.links.linkedin }}" rel="noopener">LinkedIn</a>.</p>
+  </div>
+</section>
+
+{% for track in tracks if track.posts %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">{{ track.kind }}</p>
+        <h2><a href="{{ url(track.path) }}" style="color:inherit;text-decoration:none">{{ track.name }}</a></h2>
+      </div>
+    </div>
+    <p class="narrow">{{ track.summary }}</p>
+    {% include "post_list.html" %}
+  </div>
+</section>
+{% endfor %}
+{% endblock %}

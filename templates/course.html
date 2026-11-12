@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% set L = courses.labels[lang] %}
+{% set base = '/ar/courses/' if lang == 'ar' else '/courses/' %}
+{% block title %}{{ c.name }} | {{ site.name }}{% endblock %}
+{% block description %}{{ c.tagline }} {{ c.facts[0].value }}. {{ 'من تصميم وتدريس حسين محمد الألفي، وتُقدَّم من خلال ADA Egypt.' if lang == 'ar' else 'Designed and taught by ' ~ site.name ~ ', delivered through ADA Egypt.' }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker"><a href="{{ url(base) }}" style="color:inherit">{{ L.courses }}</a></p>
+    <h1>{{ c.name }}</h1>
+    <p class="lead"><strong>{{ c.tagline }}</strong></p>
+    <p class="lead">{{ c.lead }}</p>
+    <div class="actions">
+      <a class="btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
+      <a class="btn btn-ghost" href="{{ url(alternate) }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}">{{ L.other_lang }}</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>{{ L.at_a_glance }}</h2>
+    <dl class="facts">
+      {% for fact in c.facts %}
+      <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      {% for section in c.sections %}
+      <h2>{{ section.heading }}</h2>
+      {% if section.get('text') %}<p>{{ section.text }}</p>{% endif %}
+      {% if section.get('items') %}
+      <ul>
+        {% for item in section["items"] %}<li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endfor %}
+
+      <h2>{{ L.faq }}</h2>
+      <div class="faq">
+        {% for item in c.faq %}
+        <details>
+          <summary>{{ item.q }}</summary>
+          <p>{{ item.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+
+    <aside class="sticky">
+      <div class="panel">
+        <h2>{{ L.register }}</h2>
+        <dl>
+          <dt>{{ L.status }}</dt>
+          <dd>{{ c.status }}</dd>
+          <dt>{{ L.next_cohort }}</dt>
+          <dd>{{ course.next_cohort[lang] or L.tba }}</dd>
+          <dt>{{ L.price }}</dt>
+          <dd>{{ course.price[lang] or L.ask_ada }}</dd>
+        </dl>
+        <a class="btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
+        <p class="note" style="margin:0.9rem 0 0">{{ L.disclaimer }}</p>
+      </div>
+      <div class="panel" style="margin-top:1rem">
+        <h2>{{ L.instructor }}</h2>
+        <p>{{ L.instructor_text }}</p>
+        <p style="margin:0"><a href="{{ url('/about/') }}">{{ L.about_me }}</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p><a href="{{ url(base) }}">{{ L.all_courses }}</a></p>
+  </div>
+</section>
+{% endblock %}

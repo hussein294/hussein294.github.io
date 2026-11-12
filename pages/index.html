@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% block title %}{{ site.name }}: AI engineering services and AI courses{% endblock %}
+{% block head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.name }}",
+  "alternateName": ["Hussein Mohamed", "Hussein Al-Alfy"],
+  "jobTitle": "{{ site.title }}",
+  "url": "{{ absolute('/') }}",
+  "image": "{{ absolute('/img/hussein.jpg') }}",
+  "email": "mailto:{{ site.email }}",
+  "address": {"@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG"},
+  "knowsLanguage": ["en", "ar"],
+  "sameAs": ["{{ site.links.linkedin }}", "{{ site.links.github }}", "{{ site.links.huggingface }}", "{{ site.links.upwork }}"]
+}
+</script>
+{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker">AI engineering services · AI and ML courses</p>
+      <h1>{{ site.name }}</h1>
+      <p class="hero-role">{{ site.title }} · {{ site.location }}, working remotely</p>
+      <p class="lead">I build AI systems for clients: RAG and LLM apps, document AI, Arabic speech AI and the Python backends they run on. I also teach two paid diplomas in AI systems engineering and machine learning.</p>
+      <div class="actions">
+        <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Hire me</a>
+        <a class="btn btn-ghost" href="{{ url('/services/') }}">See my services</a>
+        <a class="btn btn-ghost" href="{{ url('/courses/') }}">See the courses</a>
+      </div>
+    </div>
+    <img class="hero-photo" src="{{ url('/img/hussein.jpg') }}" width="720" height="720" alt="Portrait of {{ site.name }}">
+  </div>
+  <div class="wrap">
+    <ul class="offer">
+      <li><strong>Services for clients</strong>Paid AI engineering work, as fixed-price pilots or hourly. Open to clients anywhere.</li>
+      <li><strong>Paid courses</strong>Two diplomas I designed and teach, delivered through ADA Egypt.</li>
+      <li><strong>Get in touch</strong><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Work with me</p>
+        <h2>What I build for clients</h2>
+      </div>
+      <a href="{{ url('/services/') }}">All services and how I work</a>
+    </div>
+    <ul class="cards">
+      <li class="card"><h3>RAG and LLM apps</h3><p>Chat over your own documents and data, with grounded answers and sources. I also fix chatbots that make things up.</p></li>
+      <li class="card"><h3>Document AI</h3><p>PDFs, invoices and forms turned into clean JSON or Excel, with a confidence score for every field.</p></li>
+      <li class="card"><h3>Arabic speech and language AI</h3><p>Speech-to-text for Arabic, including the Egyptian dialect, voice-note transcription and Arabic chatbots.</p></li>
+      <li class="card"><h3>Python backends</h3><p>FastAPI services, background workers, API integrations and Docker or Kubernetes deployment.</p></li>
+      <li class="card"><h3>AI inside your product</h3><p>LLM APIs, structured outputs, tool calling, agents and guardrails added to a product you already run.</p></li>
+      <li class="card"><h3>Training and mentoring</h3><p>AI and machine learning training for teams and individuals, and technical mentoring.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="kicker">Shipped to production</p>
+    <h2>Nearly five years of ML in production</h2>
+    <ul class="stats">
+      <li><b>6 languages</b><span>One speech-recognition system for an international client, replacing separate pipelines per language.</span></li>
+      <li><b>100K+ documents a day</b><span>A document-extraction platform running real-time and batch paths at sub-second latency.</span></li>
+      <li><b>Calibrated confidence</b><span>OCR scores that track real accuracy, so sure results pass and unsure ones go to human review.</span></li>
+    </ul>
+    <p class="actions"><a href="{{ url('/projects/') }}">See the projects</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Paid courses</p>
+        <h2>Two diplomas I designed and teach</h2>
+      </div>
+      <a href="{{ url('/ar/courses/') }}" lang="ar">صفحة الدبلومات بالعربية</a>
+    </div>
+    <ul class="cards two">
+      {% for course in courses.courses %}
+      <li class="card feature">
+        <p class="card-meta">{{ course.en.facts[0].value }} · {{ course.en.facts[1].value if course.id == 'ai-systems-engineering' else course.en.facts[2].value }} sessions</p>
+        <h3><a href="{{ url('/courses/' ~ course.id ~ '/') }}">{{ course.en.name }}</a></h3>
+        <p>{{ course.en.tagline }}</p>
+        <p class="muted">{{ course.en.lead }}</p>
+        <p class="more"><a href="{{ url('/courses/' ~ course.id ~ '/') }}">Curriculum and registration</a></p>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="note" style="margin-top:1.2rem">Both diplomas are delivered through <a href="{{ site.ada.url }}" rel="noopener">{{ site.ada.name }}</a> ({{ site.ada.full_name }}), which handles enrolment and payment.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Free learning</p>
+        <h2>Free interview preparation for AI engineers</h2>
+      </div>
+      <a href="{{ url('/learn/') }}">All free material</a>
+    </div>
+    <ul class="cards">
+      {% for track in tracks if track.posts %}
+      <li class="card">
+        <p class="card-meta">{{ track.kind }}</p>
+        <h3><a href="{{ url(track.path) }}">{{ track.name }}</a></h3>
+        <p>{{ track.summary }}</p>
+        <p class="more"><a href="{{ url(track.path) }}">Start reading</a></p>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap">
+    <h2>Tell me what you are building</h2>
+    <p class="lead">Send a short description of the problem. I will reply with how I would approach it and a clear estimate.</p>
+    <div class="actions">
+      <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email {{ site.email }}</a>
+      <a class="btn btn-ghost" href="{{ url('/contact/') }}">Other ways to reach me</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

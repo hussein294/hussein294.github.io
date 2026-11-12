@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% block title %}About | {{ site.name }}{% endblock %}
+{% block description %}Background of {{ site.name }}: nearly five years of production machine learning, an M.Sc. in progress at Cairo University, and two diplomas designed and taught at ADA Egypt.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap split">
+    <div>
+      <p class="kicker">About</p>
+      <h1>An AI engineer who also ships the backend, and teaches</h1>
+      <p class="lead">I am {{ site.name }}, also known professionally as Hussein Mohamed. I have spent nearly five years shipping machine learning to production for enterprise and international clients, and I teach AI systems engineering.</p>
+      <p>I am based in Maadi, Cairo, and work remotely with clients anywhere. I work in English and Arabic; Arabic is my native language.</p>
+      <div class="actions">
+        <a class="btn" href="{{ url('/services/') }}">Work with me</a>
+        <a class="btn btn-ghost" href="{{ url('/courses/') }}">My courses</a>
+      </div>
+    </div>
+    <img class="hero-photo" style="order:0" src="{{ url('/img/hussein.jpg') }}" width="720" height="720" alt="Portrait of {{ site.name }}">
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <ol class="timeline">
+      <li>
+        <p class="when">Sep 2026 to present</p>
+        <div>
+          <h3>AI and Machine Learning Instructor, part-time</h3>
+          <p class="where"><a href="{{ site.ada.url }}" rel="noopener">{{ site.ada.full_name }}</a> ({{ site.ada.name }})</p>
+          <p>I designed two diploma curricula end to end and teach them: the <a href="{{ url('/courses/ai-systems-engineering/') }}">Practical AI Systems Engineering Diploma</a> and the <a href="{{ url('/courses/machine-learning/') }}">Machine Learning Diploma</a>.</p>
+        </div>
+      </li>
+      <li>
+        <p class="when">2026</p>
+        <div>
+          <h3>Senior Machine Learning Engineer</h3>
+          <p class="where">Linnaea, a document-AI startup</p>
+          <ul>
+            <li>Architected a hybrid real-time and batch document-extraction platform on a commercial vision-language model API, scaling to 100K+ documents a day at sub-second latency.</li>
+            <li>Benchmarked open vision-language models locally as replacements, with accuracy and latency criteria for promotion.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <p class="when">Nov 2021 to Dec 2025</p>
+        <div>
+          <h3>Senior Machine Learning Engineer</h3>
+          <p class="where">RDI, Cairo. Joined as a junior engineer and was promoted to mid-level, then senior.</p>
+          <ul>
+            <li>Built a unified multilingual speech-recognition system covering 6 languages for a major international client, consolidating separate pipelines.</li>
+            <li>Engineered OCR confidence-calibration layers so model scores track character-level accuracy. Confident results flow through automatically, and uncertain ones go to human review.</li>
+            <li>Applied Transformer domain-adaptation techniques to speech models to limit catastrophic forgetting in niche domains.</li>
+            <li>Built a Qur'anic-recitation correction speech-recognition system under severe low-resource data constraints.</li>
+            <li>Standardised containerised microservices on Docker and Kubernetes, led the full ML lifecycle across several production models, and mentored junior engineers.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Education</h2>
+    <ol class="timeline">
+      <li>
+        <p class="when">2021 to present</p>
+        <div>
+          <h3>M.Sc. in Computer Communications, in progress</h3>
+          <p class="where">Cairo University</p>
+          <p>Thesis: speech recognition for low-resource data, applied to Qur'anic recitation correction.</p>
+        </div>
+      </li>
+      <li>
+        <p class="when">2016 to 2021</p>
+        <div>
+          <h3>B.Sc. in Electronics Engineering</h3>
+          <p class="where">Cairo University</p>
+          <p>Graduation project: a software implementation of the Conformer model optimised for FPGA deployment, graded Excellent.</p>
+        </div>
+      </li>
+    </ol>
+    <p class="note">Member of the Egyptian Engineers Syndicate.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Teaching</h2>
+    <div class="narrow">
+      <p>I teach the way I work. The AI systems diploma ends with a complete system that students build, deploy and monitor, and it runs a weekly research seminar so students learn to keep up with a field that keeps changing. The machine learning diploma puts a hands-on workshop in every week, each on a real problem of the kind nobody trains you for.</p>
+      <p>The diplomas are the paid, job-shaped product. The <a href="{{ url('/learn/') }}">free learning</a> material on this site is separate from them.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Skills and tools</h2>
+    <div class="skill-groups">
+      <div>
+        <h3>LLMs and RAG</h3>
+        <ul class="tags"><li>RAG</li><li>Agentic workflows</li><li>Structured outputs</li><li>Tool calling</li><li>Embeddings</li><li>Vector databases</li><li>LangChain</li><li>LangSmith</li><li>Ollama</li><li>vLLM</li></ul>
+      </div>
+      <div>
+        <h3>Machine learning and speech</h3>
+        <ul class="tags"><li>Python</li><li>PyTorch</li><li>Hugging Face Transformers</li><li>scikit-learn</li><li>Conformer and Transformer ASR</li><li>Kaldi</li><li>k2/icefall</li><li>Label Studio</li></ul>
+      </div>
+      <div>
+        <h3>Backend</h3>
+        <ul class="tags"><li>FastAPI</li><li>gRPC</li><li>Celery</li><li>RabbitMQ</li><li>Redis</li><li>Neo4j</li></ul>
+      </div>
+      <div>
+        <h3>MLOps and cloud</h3>
+        <ul class="tags"><li>Docker</li><li>Kubernetes</li><li>MLflow</li><li>CI/CD</li><li>Model monitoring</li><li>Google Cloud and Vertex AI</li><li>AWS</li><li>Azure compute and DevOps</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

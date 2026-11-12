@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block title %}Projects and portfolio | {{ site.name }}{% endblock %}
+{% block description %}Selected work: a six-language speech-recognition system, document extraction at 100K+ documents a day, OCR confidence calibration, and open projects in RAG, GraphRAG and agents.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="kicker">Projects · Portfolio</p>
+    <h1>Selected work</h1>
+    <p class="lead">Production systems I built for employers and their clients, and my own projects from 2026. Client names and internal details stay confidential.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Production systems</h2>
+    <ul class="cards two">
+      <li class="card">
+        <p class="card-meta">Speech recognition · RDI</p>
+        <h3>Multilingual speech recognition, 6 languages</h3>
+        <p>A unified speech-recognition system covering six languages for a major international client. It consolidated separate pipelines into one system.</p>
+        <ul class="tags"><li>Python</li><li>PyTorch</li><li>Docker</li><li>Kubernetes</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">Document AI · Linnaea</p>
+        <h3>Document extraction at 100K+ documents a day</h3>
+        <p>A hybrid real-time and batch platform that extracts data from documents with a commercial vision-language model API, at sub-second latency. I also benchmarked open vision-language models locally as replacements, with accuracy and latency criteria for promotion.</p>
+        <ul class="tags"><li>Vision-language model API</li><li>Real-time and batch</li><li>Benchmarking</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">OCR · RDI</p>
+        <h3>OCR confidence calibration</h3>
+        <p>Calibration layers that make model scores track character-level accuracy. Confident results flow through automatically, and uncertain ones go to human review.</p>
+        <ul class="tags"><li>Calibration</li><li>Human review routing</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">Speech recognition · RDI and M.Sc. research</p>
+        <h3>Qur'anic recitation correction</h3>
+        <p>A speech-recognition system for correcting Qur'anic recitation, built under severe low-resource data constraints. It is the applied side of my M.Sc. research.</p>
+        <ul class="tags"><li>Low-resource ASR</li><li>Arabic speech</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">Speech recognition · RDI</p>
+        <h3>Domain adaptation for speech models</h3>
+        <p>Transformer domain-adaptation techniques applied to speech models, to limit catastrophic forgetting when adapting to niche domains.</p>
+        <ul class="tags"><li>Transformers</li><li>Domain adaptation</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">Platform · RDI</p>
+        <h3>Standardised ML microservices</h3>
+        <p>Containerised microservices standardised on Docker and Kubernetes, across the full lifecycle of several production models.</p>
+        <ul class="tags"><li>Docker</li><li>Kubernetes</li></ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Own projects, 2026</h2>
+    <ul class="cards two">
+      <li class="card">
+        <p class="card-meta">Agents</p>
+        <h3>AutoScript Engine</h3>
+        <p>An agentic workflow that turns a problem statement into a working Python codebase.</p>
+        <ul class="tags"><li>Ollama</li><li>LangChain</li><li>A2A protocol</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">RAG</p>
+        <h3>Web-RAG</h3>
+        <p>Searches the web, ranks and summarises the sources, and answers only from the retrieved context. Every run is traced in LangSmith.</p>
+        <ul class="tags"><li>RAG</li><li>LangSmith</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">RAG · Knowledge graphs</p>
+        <h3>GraphRAG</h3>
+        <p>Extracts entities and relations from text into a Neo4j knowledge graph, and answers questions over the graph.</p>
+        <ul class="tags"><li>Neo4j</li><li>Knowledge graph</li></ul>
+      </li>
+      <li class="card">
+        <p class="card-meta">Audio</p>
+        <h3>Speaker age estimation</h3>
+        <p>Predicts a speaker's age group from raw audio.</p>
+        <ul class="tags"><li>Audio classification</li></ul>
+      </li>
+    </ul>
+    <p class="note" style="margin-top:1.2rem">My profiles: <a href="{{ site.links.github }}" rel="noopener">GitHub</a> and <a href="{{ site.links.huggingface }}" rel="noopener">Hugging Face</a>.</p>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap">
+    <h2>Need something like this?</h2>
+    <div class="actions">
+      <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email me</a>
+      <a class="btn btn-ghost" href="{{ url('/services/') }}">See my services</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

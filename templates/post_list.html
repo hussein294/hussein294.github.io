@@ -1,0 +1,12 @@
+<ol class="post-list">
+  {% for post in track.posts %}
+  <li{% if post.order == 999 %} class="no-num"{% endif %}>
+    {% if post.order != 999 %}<span class="num">{{ '%02d' | format(post.order) }}</span>{% endif %}
+    <div>
+      <a href="{{ url(post.path) }}">{{ post.title }}</a>
+      <p>{{ post.description }}</p>
+    </div>
+    <span class="mins">{{ post.minutes }} min read</span>
+  </li>
+  {% endfor %}
+</ol>

@@ -1,0 +1,24 @@
+# Free-learning tracks. A post joins a track through `track: <id>` in its front matter.
+# The Markdown files live in learn/<id>/.
+
+- id: rag-interview-handbook
+  name: RAG interview handbook
+  kind: Series, 8 parts
+  summary: >-
+    Seventy-five RAG interview questions with full answers and the follow-up an
+    interviewer is likely to ask next. Covers foundations, retrieval and ranking,
+    evaluation and statistics, production and security, system design and debugging.
+
+- id: crash-courses
+  name: Crash courses
+  kind: 3 courses, 30 to 60 minutes each
+  summary: >-
+    Short, timed courses on multi-agent systems, LLM deployment and the parts of
+    the agent tooling stack: MCP, A2A, LangChain, LangGraph and LangSmith.
+
+- id: engineering-qa
+  name: Engineering Q&A
+  kind: Short answers
+  summary: >-
+    One question per post, answered properly: API styles and gRPC, evaluating
+    without test data, how agents discover tools, and where agent frameworks are heading.

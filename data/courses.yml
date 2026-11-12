@@ -1,0 +1,293 @@
+# Course details, in English (en) and Arabic (ar).
+#
+# To update dates and prices, edit `next_cohort` and `price` under each course.
+# Leave a value empty ("") and the page shows "To be announced" with a link to ADA.
+# Write the values as you want them shown, for example:
+#   next_cohort: { en: "1 February 2027", ar: "1 فبراير 2027" }
+#   price:       { en: "EGP 0,000", ar: "0,000 جنيه" }
+
+courses:
+  # ---------------------------------------------------------------------------
+  - id: ai-systems-engineering
+    next_cohort: { en: "", ar: "" }
+    price: { en: "", ar: "" }
+
+    en:
+      name: Practical AI Systems Engineering Diploma
+      tagline: Build, deploy and monitor AI systems that run in production.
+      lead: >-
+        This is not another AI course. It trains the AI engineer the market actually
+        needs: someone who builds, deploys and monitors AI systems running in
+        production, not someone who only knows how to send a request to an API.
+      status: The first cohort started on 15 September 2026.
+      facts:
+        - { label: Duration, value: 14 weeks }
+        - { label: Sessions, value: "42" }
+        - { label: Format, value: Online }
+        - { label: Cohort size, value: 10 to 15 students }
+        - { label: Labs, value: 15+ }
+        - { label: Starting point, value: "Python, from zero" }
+      sections:
+        - heading: Who it is for
+          text: >-
+            Students and early-career engineers who want to work as AI engineers.
+            The diploma starts from Python and assumes no prior programming background.
+        - heading: What you will learn
+          items:
+            - Python, from the beginning
+            - How large language models work and how to use them well
+            - Structured outputs and tool calling
+            - Retrieval-augmented generation (RAG)
+            - The Model Context Protocol (MCP)
+            - Agentic workflows
+            - Guardrails
+            - Docker
+            - Observability
+        - heading: The capstone
+          text: >-
+            You finish by building one complete system: an agent with MCP servers,
+            RAG on Qdrant and a locally hosted model. It is assembled with Docker
+            Compose, monitored with LangSmith and protected by guardrails.
+        - heading: A weekly research seminar
+          text: >-
+            Every week, students read, present and discuss research papers. The field
+            keeps changing, so the diploma teaches you how to keep up with it, not
+            only how to use today's tools.
+        - heading: How it was designed
+          text: >-
+            I built the curriculum from job-market requirements and from the skills
+            I have seen production AI engineering actually demand. I designed it end
+            to end and I teach it myself.
+      faq:
+        - q: Do I need programming experience?
+          a: No. The diploma starts from Python with no prior programming background.
+        - q: Is it online?
+          a: Yes. All 42 sessions are online, in small cohorts of 10 to 15 students.
+        - q: How do I register and pay?
+          a: >-
+            Through ADA Egypt. ADA handles enrolment and payment for the diploma.
+            This website does not take payments.
+        - q: When is the next cohort, and what does it cost?
+          a: ADA announces cohort dates and fees. Use the registration link to ask them.
+
+    ar:
+      name: دبلومة هندسة أنظمة الذكاء الاصطناعي التطبيقية
+      tagline: ابنِ أنظمة ذكاء اصطناعي تعمل فعلًا في بيئة الإنتاج، وانشرها وراقبها.
+      lead: >-
+        مش «كورس AI كمان». هذه الدبلومة تُعِدّ مهندس الذكاء الاصطناعي الذي يحتاجه
+        السوق فعلًا: من يبني أنظمة الذكاء الاصطناعي وينشرها ويراقبها وهي تعمل في
+        بيئة الإنتاج، لا من يعرف فقط كيف يرسل طلبًا إلى API.
+      status: بدأت الدفعة الأولى يوم 15 سبتمبر 2026.
+      facts:
+        - { label: المدة, value: 14 أسبوعًا }
+        - { label: عدد المحاضرات, value: "42" }
+        - { label: طريقة الدراسة, value: أونلاين }
+        - { label: حجم الدفعة, value: من 10 إلى 15 طالبًا }
+        - { label: المعامل العملية, value: أكثر من 15 }
+        - { label: نقطة البداية, value: بايثون من الصفر }
+      sections:
+        - heading: لمن هذه الدبلومة؟
+          text: >-
+            للطلاب والمهندسين في بداية مسيرتهم ممن يريدون العمل كمهندسي ذكاء اصطناعي.
+            نبدأ من بايثون، ولا نفترض أي خبرة سابقة في البرمجة.
+        - heading: ماذا ستتعلم؟
+          items:
+            - بايثون من البداية
+            - كيف تعمل نماذج اللغة الكبيرة (LLMs) وكيف تستخدمها جيدًا
+            - المخرجات المنظَّمة (Structured outputs) واستدعاء الأدوات (Tool calling)
+            - التوليد المعزَّز بالاسترجاع (RAG)
+            - بروتوكول MCP
+            - سير العمل المعتمد على الوكلاء (Agentic workflows)
+            - ضوابط الحماية (Guardrails)
+            - Docker
+            - المراقبة والتتبّع (Observability)
+        - heading: مشروع التخرج
+          text: >-
+            تُنهي الدبلومة ببناء نظام كامل: وكيل (Agent) يعمل مع خوادم MCP، ومعه RAG
+            على Qdrant ونموذج مُستضاف محليًا. يُجمَّع النظام كله بـ Docker Compose،
+            ويُراقَب بـ LangSmith، وتحميه Guardrails.
+        - heading: سيمنار بحثي كل أسبوع
+          text: >-
+            كل أسبوع يقرأ الطلاب أوراقًا بحثية ويعرضونها ويناقشونها. المجال يتغيّر
+            باستمرار، فالهدف أن تتعلم كيف تواكبه، لا أن تتعلم أدوات اليوم فقط.
+        - heading: كيف صُمِّمت؟
+          text: >-
+            بنيتُ المنهج على متطلبات سوق العمل وعلى المهارات التي رأيتُ أن هندسة
+            الذكاء الاصطناعي في بيئة الإنتاج تحتاجها فعلًا. صمّمتُ المنهج كاملًا
+            وأدرّسه بنفسي.
+      faq:
+        - q: هل أحتاج إلى خبرة سابقة في البرمجة؟
+          a: لا. الدبلومة تبدأ من بايثون ولا تفترض أي خلفية برمجية.
+        - q: هل الدراسة أونلاين؟
+          a: نعم. المحاضرات الـ42 كلها أونلاين، في دفعات صغيرة من 10 إلى 15 طالبًا.
+        - q: كيف أسجّل وأدفع؟
+          a: >-
+            عن طريق ADA Egypt. التسجيل والدفع يتمّان من خلال الأكاديمية، وهذا الموقع
+            لا يستقبل أي مدفوعات.
+        - q: متى تبدأ الدفعة القادمة وما التكلفة؟
+          a: تعلن ADA مواعيد الدفعات والرسوم. استخدم رابط التسجيل للاستفسار منهم.
+
+  # ---------------------------------------------------------------------------
+  - id: machine-learning
+    next_cohort: { en: "", ar: "" }
+    price: { en: "", ar: "" }
+
+    en:
+      name: Machine Learning Diploma
+      tagline: Take a model from messy data to production, not just to model.fit().
+      lead: >-
+        There is a big difference between someone who knows machine learning and
+        someone who does it. Doing it means sitting in front of messy data, with
+        missing values and meaningless columns and nobody telling you what to do,
+        and working until a model actually works.
+      status: No cohort has started yet. Ask ADA about the first intake.
+      facts:
+        - { label: Duration, value: 16 weeks }
+        - { label: Modules, value: "18" }
+        - { label: Sessions, value: "48" }
+        - { label: Workshops, value: "16, one every week" }
+        - { label: Projects, value: 6 real-world projects }
+        - { label: Capstone, value: Deployed }
+      sections:
+        - heading: How each week works
+          text: >-
+            Every week has two content sessions and one hands-on workshop. That is
+            16 weeks and 16 workshops.
+        - heading: The workshops
+          text: "Each workshop is a real problem of the kind nobody trains you for:"
+          items:
+            - Data that silently breaks the model
+            - A model with 95% accuracy and no practical value
+            - A feature that matters more than any algorithm
+            - Data leakage that looks great in training and fails in production
+            - A model that works on your laptop and falls over on its first deployment
+        - heading: The full path
+          text: >-
+            The diploma goes from exploratory data analysis and feature engineering,
+            through tree-based models and deep learning, to MLflow, FastAPI, Docker
+            and monitoring. The model really reaches production.
+        - heading: What you leave with
+          text: >-
+            A portfolio you built yourself: six real-world projects and a deployed
+            capstone.
+        - heading: How it was designed
+          text: >-
+            I designed this diploma the way I believe machine learning should be
+            taught, and I teach it myself.
+      faq:
+        - q: How is this different from other machine learning courses?
+          a: >-
+            It is built around practice. A third of the sessions are workshops on
+            real problems, and the path does not stop at training a model. It
+            continues through deployment and monitoring.
+        - q: How do I register and pay?
+          a: >-
+            Through ADA Egypt. ADA handles enrolment and payment for the diploma.
+            This website does not take payments.
+        - q: When does it start, and what does it cost?
+          a: ADA announces cohort dates and fees. Use the registration link to ask them.
+
+    ar:
+      name: دبلومة تعلّم الآلة
+      tagline: من بيانات فوضوية إلى موديل شغّال في الإنتاج، مش لحد model.fit وبس.
+      lead: >-
+        الفرق كبير بين من «يعرف» تعلّم الآلة ومن «يمارسه». الممارسة أن تجلس أمام
+        بيانات فوضوية، فيها قيم ناقصة وأعمدة بلا معنى، ولا أحد يخبرك ماذا تفعل،
+        وتظل تعمل حتى يعمل النموذج فعلًا.
+      status: لم تبدأ أي دفعة بعد. اسأل ADA عن موعد الدفعة الأولى.
+      facts:
+        - { label: المدة, value: 16 أسبوعًا }
+        - { label: الوحدات, value: "18" }
+        - { label: عدد المحاضرات, value: "48" }
+        - { label: الورش العملية, value: 16 ورشة، واحدة كل أسبوع }
+        - { label: المشاريع, value: 6 مشاريع واقعية }
+        - { label: مشروع التخرج, value: منشور فعليًا (Deployed) }
+      sections:
+        - heading: كيف يسير كل أسبوع؟
+          text: >-
+            في كل أسبوع محاضرتان للمحتوى وورشة عملية واحدة. أي 16 أسبوعًا و16 ورشة.
+        - heading: الورش العملية
+          text: "كل ورشة مشكلة حقيقية من النوع الذي لا يدرّبك عليه أحد:"
+          items:
+            - بيانات تُفسد النموذج في صمت
+            - نموذج دقته 95% ولا قيمة عملية له
+            - خاصية (Feature) واحدة أهم من أي خوارزمية
+            - تسريب بيانات (Data leakage) يبدو رائعًا في التدريب ويفشل في الإنتاج
+            - نموذج يعمل على جهازك ويسقط مع أول نشر
+        - heading: المسار كاملًا
+          text: >-
+            من تحليل البيانات الاستكشافي (EDA) وهندسة الخصائص، مرورًا بنماذج الأشجار
+            والتعلّم العميق، حتى MLflow وFastAPI وDocker والمراقبة. النموذج يصل فعلًا
+            إلى الإنتاج.
+        - heading: بماذا تخرج؟
+          text: >-
+            بمعرض أعمال بنيته بنفسك: ستة مشاريع واقعية ومشروع تخرج منشور فعليًا.
+        - heading: كيف صُمِّمت؟
+          text: >-
+            صمّمتُ هذه الدبلومة بالطريقة التي أرى أن تعلّم الآلة يجب أن يُدرَّس بها،
+            وأدرّسها بنفسي.
+      faq:
+        - q: ما الذي يميّزها عن غيرها من كورسات تعلّم الآلة؟
+          a: >-
+            أنها مبنية على الممارسة. ثلث المحاضرات ورش على مشاكل حقيقية، والمسار لا
+            يتوقف عند تدريب النموذج، بل يكمل حتى النشر والمراقبة.
+        - q: كيف أسجّل وأدفع؟
+          a: >-
+            عن طريق ADA Egypt. التسجيل والدفع يتمّان من خلال الأكاديمية، وهذا الموقع
+            لا يستقبل أي مدفوعات.
+        - q: متى تبدأ وما التكلفة؟
+          a: تعلن ADA مواعيد الدفعات والرسوم. استخدم رابط التسجيل للاستفسار منهم.
+
+# Text used on the course pages, per language.
+labels:
+  en:
+    courses: Courses
+    courses_title: Paid courses
+    courses_lead: >-
+      Two diplomas I designed end to end and teach myself. Both are delivered
+      through ADA, the Academy of Digital Arts (ADA Egypt), which handles enrolment and payment.
+    next_cohort: Next cohort
+    price: Price
+    tba: To be announced
+    ask_ada: Ask ADA
+    register: Register through ADA
+    details: See the full details
+    faq: Questions
+    at_a_glance: At a glance
+    status: Status
+    instructor: Your instructor
+    instructor_text: >-
+      I am Hussein Mohamed Al-Alfy, a senior machine learning engineer with nearly
+      five years shipping ML to production. I designed this curriculum and I teach it.
+    about_me: More about me
+    disclaimer: >-
+      This is my personal website. The diplomas are delivered through ADA, which
+      handles enrolment and payment. This site does not take payments and is not
+      run or endorsed by ADA.
+    other_lang: العربية
+    all_courses: All courses
+  ar:
+    courses: الدبلومات
+    courses_title: الدبلومات المدفوعة
+    courses_lead: >-
+      دبلومتان صمّمتُ منهجيهما كاملًا وأدرّسهما بنفسي. تُقدَّمان من خلال
+      ADA Egypt (Academy of Digital Arts)، وهي التي تتولى التسجيل والدفع.
+    next_cohort: الدفعة القادمة
+    price: السعر
+    tba: يُعلَن قريبًا
+    ask_ada: اسأل ADA
+    register: سجّل عن طريق ADA
+    details: كل التفاصيل
+    faq: أسئلة شائعة
+    at_a_glance: في سطور
+    status: الحالة
+    instructor: من يدرّس؟
+    instructor_text: >-
+      أنا حسين محمد الألفي، مهندس تعلّم آلة أول، أعمل منذ ما يقارب خمس سنوات على
+      أنظمة تعلّم آلة تعمل في بيئة الإنتاج. صمّمتُ هذا المنهج وأدرّسه بنفسي.
+    about_me: تعرّف عليّ أكثر (بالإنجليزية)
+    disclaimer: >-
+      هذا موقعي الشخصي. تُقدَّم الدبلومات من خلال ADA، وهي التي تتولى التسجيل
+      والدفع. هذا الموقع لا يستقبل مدفوعات، ولا تديره ADA ولا تعتمده.
+    other_lang: English
+    all_courses: كل الدبلومات
