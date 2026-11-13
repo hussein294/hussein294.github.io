@@ -5,16 +5,16 @@
 <section class="page-head">
   <div class="wrap split">
     <div>
-      <p class="kicker">About</p>
+      <p class="ha-label">About</p>
       <h1>An AI engineer who also ships the backend, and teaches</h1>
       <p class="lead">I am {{ site.name }}, also known professionally as Hussein Mohamed. I have spent nearly five years shipping machine learning to production for enterprise and international clients, and I teach AI systems engineering.</p>
       <p>I am based in Maadi, Cairo, and work remotely with clients anywhere. I work in English and Arabic; Arabic is my native language.</p>
       <div class="actions">
-        <a class="btn" href="{{ url('/services/') }}">Work with me</a>
-        <a class="btn btn-ghost" href="{{ url('/courses/') }}">My courses</a>
+        <a class="ha-btn ha-btn-primary" href="{{ url('/services/') }}">Work with me</a>
+        <a class="ha-btn" href="{{ url('/courses/') }}">My courses</a>
       </div>
     </div>
-    <img class="hero-photo" style="order:0" src="{{ url('/img/hussein.jpg') }}" width="720" height="720" alt="Portrait of {{ site.name }}">
+    <img class="portrait" src="{{ url('/img/hussein.jpg') }}" width="720" height="720" alt="Portrait of {{ site.name }}">
   </div>
 </section>
 
@@ -23,7 +23,7 @@
     <h2>Experience</h2>
     <ol class="timeline">
       <li>
-        <p class="when">Sep 2026 to present</p>
+        <p class="ha-label when">Sep 2026 to present</p>
         <div>
           <h3>AI and Machine Learning Instructor, part-time</h3>
           <p class="where"><a href="{{ site.ada.url }}" rel="noopener">{{ site.ada.full_name }}</a> ({{ site.ada.name }})</p>
@@ -31,7 +31,7 @@
         </div>
       </li>
       <li>
-        <p class="when">2026</p>
+        <p class="ha-label when">2026</p>
         <div>
           <h3>Senior Machine Learning Engineer</h3>
           <p class="where">Linnaea, a document-AI startup</p>
@@ -42,7 +42,7 @@
         </div>
       </li>
       <li>
-        <p class="when">Nov 2021 to Dec 2025</p>
+        <p class="ha-label when">Nov 2021 to Dec 2025</p>
         <div>
           <h3>Senior Machine Learning Engineer</h3>
           <p class="where">RDI, Cairo. Joined as a junior engineer and was promoted to mid-level, then senior.</p>
@@ -64,7 +64,7 @@
     <h2>Education</h2>
     <ol class="timeline">
       <li>
-        <p class="when">2021 to present</p>
+        <p class="ha-label when">2021 to present</p>
         <div>
           <h3>M.Sc. in Computer Communications, in progress</h3>
           <p class="where">Cairo University</p>
@@ -72,7 +72,7 @@
         </div>
       </li>
       <li>
-        <p class="when">2016 to 2021</p>
+        <p class="ha-label when">2016 to 2021</p>
         <div>
           <h3>B.Sc. in Electronics Engineering</h3>
           <p class="where">Cairo University</p>
@@ -87,7 +87,7 @@
 <section class="section">
   <div class="wrap">
     <h2>Teaching</h2>
-    <div class="narrow">
+    <div class="measure">
       <p>I teach the way I work. The AI systems diploma ends with a complete system that students build, deploy and monitor, and it runs a weekly research seminar so students learn to keep up with a field that keeps changing. The machine learning diploma puts a hands-on workshop in every week, each on a real problem of the kind nobody trains you for.</p>
       <p>The diplomas are the paid, job-shaped product. The <a href="{{ url('/learn/') }}">free learning</a> material on this site is separate from them.</p>
     </div>
@@ -100,19 +100,19 @@
     <div class="skill-groups">
       <div>
         <h3>LLMs and RAG</h3>
-        <ul class="tags"><li>RAG</li><li>Agentic workflows</li><li>Structured outputs</li><li>Tool calling</li><li>Embeddings</li><li>Vector databases</li><li>LangChain</li><li>LangSmith</li><li>Ollama</li><li>vLLM</li></ul>
+        <ul class="tags"><li class="ha-tag ha-tag-plain">RAG</li><li class="ha-tag ha-tag-plain">Agentic workflows</li><li class="ha-tag ha-tag-plain">Structured outputs</li><li class="ha-tag ha-tag-plain">Tool calling</li><li class="ha-tag ha-tag-plain">Embeddings</li><li class="ha-tag ha-tag-plain">Vector databases</li><li class="ha-tag ha-tag-plain">LangChain</li><li class="ha-tag ha-tag-plain">LangSmith</li><li class="ha-tag ha-tag-plain">Ollama</li><li class="ha-tag ha-tag-plain">vLLM</li></ul>
       </div>
       <div>
         <h3>Machine learning and speech</h3>
-        <ul class="tags"><li>Python</li><li>PyTorch</li><li>Hugging Face Transformers</li><li>scikit-learn</li><li>Conformer and Transformer ASR</li><li>Kaldi</li><li>k2/icefall</li><li>Label Studio</li></ul>
+        <ul class="tags"><li class="ha-tag ha-tag-plain">Python</li><li class="ha-tag ha-tag-plain">PyTorch</li><li class="ha-tag ha-tag-plain">Hugging Face Transformers</li><li class="ha-tag ha-tag-plain">scikit-learn</li><li class="ha-tag ha-tag-plain">Conformer and Transformer ASR</li><li class="ha-tag ha-tag-plain">Kaldi</li><li class="ha-tag ha-tag-plain">k2/icefall</li><li class="ha-tag ha-tag-plain">Label Studio</li></ul>
       </div>
       <div>
         <h3>Backend</h3>
-        <ul class="tags"><li>FastAPI</li><li>gRPC</li><li>Celery</li><li>RabbitMQ</li><li>Redis</li><li>Neo4j</li></ul>
+        <ul class="tags"><li class="ha-tag ha-tag-plain">FastAPI</li><li class="ha-tag ha-tag-plain">gRPC</li><li class="ha-tag ha-tag-plain">Celery</li><li class="ha-tag ha-tag-plain">RabbitMQ</li><li class="ha-tag ha-tag-plain">Redis</li><li class="ha-tag ha-tag-plain">Neo4j</li></ul>
       </div>
       <div>
         <h3>MLOps and cloud</h3>
-        <ul class="tags"><li>Docker</li><li>Kubernetes</li><li>MLflow</li><li>CI/CD</li><li>Model monitoring</li><li>Google Cloud and Vertex AI</li><li>AWS</li><li>Azure compute and DevOps</li></ul>
+        <ul class="tags"><li class="ha-tag ha-tag-plain">Docker</li><li class="ha-tag ha-tag-plain">Kubernetes</li><li class="ha-tag ha-tag-plain">MLflow</li><li class="ha-tag ha-tag-plain">CI/CD</li><li class="ha-tag ha-tag-plain">Model monitoring</li><li class="ha-tag ha-tag-plain">Google Cloud and Vertex AI</li><li class="ha-tag ha-tag-plain">AWS</li><li class="ha-tag ha-tag-plain">Azure compute and DevOps</li></ul>
       </div>
     </div>
   </div>

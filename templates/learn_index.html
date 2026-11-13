@@ -4,7 +4,8 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Free learning</p>
+    <div class="teach-head"><a class="ha-lockup ha-lockup-teach" href="{{ url('/learn/') }}">{% include "mark.html" %}<span>Machine Learning, Connected<small>by Hussein M. Al-Alfy</small></span></a></div>
+    <p class="ha-label">Free learning</p>
     <h1>Free interview preparation for AI engineers</h1>
     <p class="lead">Everything here is free to read. I wrote these while preparing for senior AI engineering interviews: full answers, the follow-up questions that usually come next, and the sources behind the numbers.</p>
     <p class="note">This material is separate from my <a href="{{ url('/courses/') }}">paid diplomas</a>. To follow new posts, use the <a href="{{ url('/feed.xml') }}">RSS feed</a> or follow me on <a href="{{ site.links.linkedin }}" rel="noopener">LinkedIn</a>.</p>
@@ -16,11 +17,11 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <p class="kicker">{{ track.kind }}</p>
-        <h2><a href="{{ url(track.path) }}" style="color:inherit;text-decoration:none">{{ track.name }}</a></h2>
+        <p class="ha-label">{{ track.kind }}</p>
+        <h2><a href="{{ url(track.path) }}" class="plain">{{ track.name }}</a></h2>
       </div>
     </div>
-    <p class="narrow">{{ track.summary }}</p>
+    <p class="measure">{{ track.summary }}</p>
     {% include "post_list.html" %}
   </div>
 </section>

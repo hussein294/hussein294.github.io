@@ -1,0 +1,104 @@
+/* Hussein M. Al-Alfy — reference component styles. Every value is a token from tokens.css. */
+body { margin: 0; font-family: var(--font-sans); font-size: 17px; line-height: 28px; background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.ha-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; padding: var(--space-6); }
+.ha-stack { display: flex; flex-direction: column; gap: var(--space-6); padding: var(--space-6); }
+.ha-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6); padding: var(--space-6); }
+.ha-on-contrast { background: var(--contrast-surface); color: var(--on-contrast); }
+
+/* Label: the uppercase mono eyebrow */
+.ha-label { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); margin: 0; }
+
+/* Logo */
+.ha-mark { display: block; flex: none; overflow: visible; }
+.ha-mark .edge { fill: none; stroke: var(--ink); stroke-width: 4; stroke-linecap: round; }
+.ha-mark .foot { fill: var(--ink); }
+.ha-mark .apex { fill: var(--accent); stroke: var(--ink); stroke-width: 3; }
+.ha-on-contrast .ha-mark .edge, .ha-on-contrast .ha-mark .apex { stroke: var(--on-contrast); }
+.ha-on-contrast .ha-mark .foot { fill: var(--on-contrast); }
+.ha-lockup { display: inline-flex; align-items: center; gap: 0.5em; font-family: var(--font-serif); font-weight: 600; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: inherit; text-decoration: none; }
+.ha-lockup .ha-mark { width: 1.25em; height: 1.25em; }
+.ha-lockup-ar { font-family: var(--font-arabic-display); font-weight: 700; letter-spacing: 0; }
+.ha-lockup-teach { align-items: flex-start; }
+.ha-lockup-teach .ha-mark { margin-top: 0.1em; }
+.ha-lockup-teach small { display: block; font-family: var(--font-sans); font-weight: 400; font-size: 14px; line-height: 22px; letter-spacing: 0; color: var(--ink-muted); }
+.ha-on-contrast .ha-lockup-teach small { color: inherit; opacity: 0.8; }
+
+/* Button */
+.ha-btn { display: inline-flex; align-items: center; justify-content: center; height: 44px; padding: 0 var(--space-6); font-family: var(--font-sans); font-size: 16px; font-weight: 600; line-height: 1; border-radius: var(--radius-md); border: var(--rule-width) solid var(--border); background: none; color: var(--ink); text-decoration: none; cursor: pointer; transition: background-color 150ms ease-out, border-color 150ms ease-out; }
+.ha-btn:hover { border-color: var(--ink); }
+.ha-btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.ha-btn-primary:hover { border-color: var(--on-accent); }
+.ha-btn:focus-visible, .ha-link:focus-visible, .ha-card a:focus-visible { outline: var(--edge-width) solid var(--focus); outline-offset: 2px; }
+.ha-link { color: var(--accent-ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ha-link:hover { text-decoration-thickness: 2px; }
+
+/* Tag */
+.ha-tag { display: inline-flex; align-items: center; gap: var(--space-2); height: 24px; padding: 0 var(--space-2); font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); border: var(--rule-width) solid var(--border); border-radius: var(--radius-sm); white-space: nowrap; }
+.ha-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--ink-muted); }
+.ha-tag-key::before { background: var(--accent); box-shadow: 0 0 0 1px var(--ink); }
+.ha-tag-math::before { background: var(--chalk-blue); }
+.ha-tag-works::before { background: var(--chalk-green); }
+.ha-tag-breaks::before { background: var(--chalk-coral); }
+.ha-tag-plain::before { display: none; }
+
+/* Card */
+.ha-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-6); background: var(--surface-raised); border: var(--rule-width) solid var(--rule); border-radius: var(--radius-md); }
+.ha-card h3 { margin: 0; font-family: var(--font-serif); font-size: 22px; line-height: 28px; font-weight: 600; }
+.ha-card h3 a { color: inherit; text-decoration: none; }
+.ha-card h3 a:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.ha-card p { margin: 0; }
+.ha-card .ha-meta { font-size: 14px; line-height: 22px; color: var(--ink-muted); margin-top: auto; padding-top: var(--space-3); border-top: var(--rule-width) solid var(--rule); }
+
+/* Callout: the three teaching beats */
+.ha-callout { padding: var(--space-4) var(--space-6) var(--space-6); background: var(--surface-sunk); border-top: var(--edge-width) solid var(--ink-muted); border-radius: 0 0 var(--radius-md) var(--radius-md); max-width: var(--measure); }
+.ha-callout .ha-label { color: var(--ink); margin-bottom: var(--space-2); }
+.ha-callout p { margin: 0; }
+.ha-callout code, .ha-inline-code { font-family: var(--font-mono); font-size: 15px; }
+.ha-callout-concept { border-top-color: var(--accent-ink); }
+.ha-callout-concept .ha-label { color: var(--accent-ink); }
+.ha-callout-math { border-top-color: var(--chalk-blue); }
+.ha-callout-math .ha-label { color: var(--chalk-blue); }
+.ha-callout-works { border-top-color: var(--chalk-green); }
+.ha-callout-works .ha-label { color: var(--chalk-green); }
+.ha-callout-breaks { border-top-color: var(--chalk-coral); }
+.ha-callout-breaks .ha-label { color: var(--chalk-coral); }
+
+/* Code block */
+.ha-code { margin: 0; background: var(--surface-sunk); border: var(--rule-width) solid var(--rule); border-radius: var(--radius-md); overflow: hidden; max-width: var(--measure); }
+.ha-code figcaption { padding: var(--space-2) var(--space-4); border-bottom: var(--rule-width) solid var(--rule); font-family: var(--font-mono); font-size: 12px; line-height: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
+.ha-code pre { margin: 0; padding: var(--space-4); overflow-x: auto; font-family: var(--font-mono); font-size: 15px; line-height: 24px; color: var(--ink); }
+.ha-code .c { color: var(--ink-muted); font-style: italic; }
+.ha-code .k { color: var(--chalk-blue); }
+.ha-code .s { color: var(--chalk-green); }
+.ha-code .n { color: var(--accent-ink); }
+
+/* Concept graph */
+.ha-graph { display: block; width: 100%; height: auto; font-family: var(--font-sans); }
+.ha-graph .edge { stroke: var(--ink-muted); stroke-width: 2; fill: none; }
+.ha-graph .arrow { fill: var(--ink-muted); }
+.ha-graph .node { fill: var(--surface); stroke: var(--ink); stroke-width: 2; }
+.ha-graph .node-done { fill: var(--surface-sunk); }
+.ha-graph .node-active { fill: var(--accent); }
+.ha-graph .node-breaks { stroke: var(--chalk-coral); }
+.ha-graph text { fill: var(--ink); font-size: 14px; }
+.ha-graph text.muted { fill: var(--ink-muted); }
+.ha-graph text.breaks { fill: var(--chalk-coral); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; }
+
+/* Right-to-left */
+[dir="rtl"] { font-family: var(--font-arabic); font-size: 18px; line-height: 32px; }
+[dir="rtl"] .ha-label { font-family: var(--font-arabic); font-size: 14px; letter-spacing: 0; text-transform: none; }
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { font-family: var(--font-arabic-display); font-weight: 700; letter-spacing: 0; line-height: 1.5; }
+
+/* Contrast band adjustments */
+.ha-btn-primary { border-color: var(--on-accent); }
+.ha-btn-primary:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ha-on-contrast .ha-btn { color: var(--on-contrast); border-color: var(--on-contrast); }
+.ha-on-contrast .ha-btn-primary { color: var(--on-accent); border-color: var(--on-accent); }
+.ha-on-contrast .ha-link { color: inherit; }
+.ha-on-contrast .ha-label { color: inherit; opacity: 0.8; }
+
+/* Fixed-colour artwork (video, thumbnails, social cards): does not follow the theme */
+.ha-fixed-board { background: var(--board); color: var(--chalk); }
+.ha-fixed-board .ha-mark .edge, .ha-fixed-board .ha-mark .apex { stroke: var(--chalk); }
+.ha-fixed-board .ha-mark .foot { fill: var(--chalk); }
+.ha-fixed-board .ha-mark .apex { fill: var(--amber); }

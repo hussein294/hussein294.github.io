@@ -6,13 +6,14 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker"><a href="{{ url(base) }}" style="color:inherit">{{ L.courses }}</a></p>
+    <p class="ha-label"><a href="{{ url(base) }}" class="plain">{{ L.courses }}</a></p>
     <h1>{{ c.name }}</h1>
+    <p class="ha-label">{{ L.taught_by }}</p>
     <p class="lead"><strong>{{ c.tagline }}</strong></p>
     <p class="lead">{{ c.lead }}</p>
     <div class="actions">
-      <a class="btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
-      <a class="btn btn-ghost" href="{{ url(alternate) }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}">{{ L.other_lang }}</a>
+      <a class="ha-btn ha-btn-primary" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
+      <a class="ha-btn" href="{{ url(alternate) }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}">{{ L.other_lang }}</a>
     </div>
   </div>
 </section>
@@ -64,13 +65,13 @@
           <dt>{{ L.price }}</dt>
           <dd>{{ course.price[lang] or L.ask_ada }}</dd>
         </dl>
-        <a class="btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
-        <p class="note" style="margin:0.9rem 0 0">{{ L.disclaimer }}</p>
+        <a class="ha-btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
+        <p class="note">{{ L.disclaimer }}</p>
       </div>
-      <div class="panel" style="margin-top:1rem">
+      <div class="panel">
         <h2>{{ L.instructor }}</h2>
         <p>{{ L.instructor_text }}</p>
-        <p style="margin:0"><a href="{{ url('/about/') }}">{{ L.about_me }}</a></p>
+        <p><a class="ha-link" href="{{ url('/about/') }}">{{ L.about_me }}</a></p>
       </div>
     </aside>
   </div>

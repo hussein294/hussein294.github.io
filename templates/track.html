@@ -4,7 +4,7 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker"><a href="{{ url('/learn/') }}" style="color:inherit">Free learning</a> · {{ track.kind }}</p>
+    <p class="ha-label"><a href="{{ url('/learn/') }}" class="plain">Free learning</a> · {{ track.kind }}</p>
     <h1>{{ track.name }}</h1>
     <p class="lead">{{ track.summary }}</p>
   </div>
@@ -12,7 +12,7 @@
 <section class="section">
   <div class="wrap">
     {% include "post_list.html" %}
-    <p style="margin-top:2rem"><a href="{{ url('/learn/') }}">All free learning</a></p>
+    <p><a href="{{ url('/learn/') }}">All free learning</a></p>
   </div>
 </section>
 {% endblock %}

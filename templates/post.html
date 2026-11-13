@@ -6,10 +6,10 @@
 <article>
   <header class="post-head">
     <div class="wrap">
-      <p class="kicker"><a href="{{ url('/learn/') }}" style="color:inherit">Free learning</a> · <a href="{{ url('/learn/' ~ post.track ~ '/') }}" style="color:inherit">{{ post.track_name }}</a></p>
+      <p class="ha-label"><a href="{{ url('/learn/') }}" class="plain">Free learning</a> · <a href="{{ url('/learn/' ~ post.track ~ '/') }}" class="plain">{{ post.track_name }}</a></p>
       <h1>{{ post.title }}</h1>
-      <p class="post-meta">
-        <span>By {{ site.name }}</span>
+      <p class="ha-label post-meta">
+        <span>By Hussein M. Al-Alfy</span>
         <time datetime="{{ post.date.isoformat() }}">{{ post.date | longdate }}</time>
         <span>{{ post.minutes }} min read</span>
       </p>
@@ -19,7 +19,7 @@
     <div class="prose">
       {% if post.contents | length > 2 %}
       <nav class="contents" aria-label="On this page">
-        <p>On this page</p>
+        <p class="ha-label">On this page</p>
         <ol>
           {% for heading in post.contents %}<li>{{ heading }}</li>
           {% endfor %}
@@ -30,15 +30,15 @@
 
       {% if post.prev or post.next %}
       <nav class="post-nav" aria-label="More in this series">
-        {% if post.prev %}<a href="{{ url(post.prev.path) }}"><span>Previous</span>{{ post.prev.title }}</a>{% else %}<span></span>{% endif %}
-        {% if post.next %}<a class="next" href="{{ url(post.next.path) }}"><span>Next</span>{{ post.next.title }}</a>{% endif %}
+        {% if post.prev %}<a href="{{ url(post.prev.path) }}"><span class="ha-label">Previous</span>{{ post.prev.title }}</a>{% else %}<span></span>{% endif %}
+        {% if post.next %}<a class="next" href="{{ url(post.next.path) }}"><span class="ha-label">Next</span>{{ post.next.title }}</a>{% endif %}
       </nav>
       {% endif %}
 
-      <div class="callout">
+      <div class="aside-note">
         <p><strong>Want to go deeper?</strong> I teach this material in my <a href="{{ url('/courses/') }}">paid diplomas</a>, and I build these systems for clients. <a href="{{ url('/services/') }}">See my services</a> or <a href="mailto:{{ site.email }}">email me</a>.</p>
       </div>
-      <p style="margin-top:1.5rem"><a href="{{ url('/learn/' ~ post.track ~ '/') }}">All posts in {{ post.track_name }}</a></p>
+      <p><a href="{{ url('/learn/' ~ post.track ~ '/') }}">All posts in {{ post.track_name }}</a></p>
     </div>
   </div>
 </article>

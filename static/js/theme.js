@@ -1,17 +1,13 @@
-// Light and dark mode. Follows the system setting until the visitor picks one.
+// Theme toggle: Paper (light) and Blackboard (dark). The choice is remembered.
 (function () {
   var button = document.getElementById("theme-toggle");
   if (!button) return;
-  var root = document.documentElement;
   button.addEventListener("click", function () {
-    var current = root.getAttribute("data-theme");
-    if (!current) {
-      current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    var next = current === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
+    var d = document.documentElement;
+    var t = d.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    d.setAttribute("data-theme", t);
     try {
-      localStorage.setItem("theme", next);
+      localStorage.setItem("theme", t);
     } catch (e) {}
   });
 })();

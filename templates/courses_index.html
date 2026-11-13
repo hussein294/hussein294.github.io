@@ -6,12 +6,12 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">{{ L.courses }}</p>
+    <p class="ha-label">{{ L.courses }}</p>
     <h1>{{ L.courses_title }}</h1>
     <p class="lead">{{ L.courses_lead }}</p>
     <div class="actions">
-      <a class="btn" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
-      <a class="btn btn-ghost" href="{{ url(alternate) }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}">{{ L.other_lang }}</a>
+      <a class="ha-btn ha-btn-primary" href="{{ site.ada.url }}" rel="noopener">{{ L.register }}</a>
+      <a class="ha-btn" href="{{ url(alternate) }}" lang="{{ 'en' if lang == 'ar' else 'ar' }}">{{ L.other_lang }}</a>
     </div>
   </div>
 </section>
@@ -21,21 +21,22 @@
     <ul class="cards two">
       {% for course in courses.courses %}
       {% set c = course[lang] %}
-      <li class="card feature">
-        <h2 style="font-size:1.45rem"><a style="color:inherit;text-decoration:none" href="{{ url(base ~ course.id ~ '/') }}">{{ c.name }}</a></h2>
+      <li class="ha-card">
+        <p class="ha-label">{{ L.card_label }}</p>
+        <h3><a href="{{ url(base ~ course.id ~ '/') }}">{{ c.name }}</a></h3>
         <p><strong>{{ c.tagline }}</strong></p>
         <p class="muted">{{ c.lead }}</p>
-        <dl class="facts" style="margin-bottom:1.2rem">
+        <dl class="facts">
           {% for fact in c.facts[:4] %}
           <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
           {% endfor %}
         </dl>
         <p class="note">{{ c.status }}</p>
-        <p class="more"><a class="btn btn-ghost" href="{{ url(base ~ course.id ~ '/') }}">{{ L.details }}</a></p>
+        <p class="ha-meta"><a class="ha-link" href="{{ url(base ~ course.id ~ '/') }}">{{ L.details }}</a></p>
       </li>
       {% endfor %}
     </ul>
-    <p class="note" style="margin-top:1.5rem">{{ L.disclaimer }}</p>
+    <p class="note">{{ L.disclaimer }}</p>
   </div>
 </section>
 {% endblock %}

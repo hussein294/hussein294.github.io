@@ -4,7 +4,7 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="kicker">Contact</p>
+    <p class="ha-label">Contact</p>
     <h1>Get in touch</h1>
     <p class="lead">For client work, send me what you are building. I will reply with how I would approach it and a clear estimate.</p>
   </div>
@@ -15,27 +15,27 @@
     <div>
       <h2>Reach me directly</h2>
       <ul class="contact-list">
-        <li><span>Email</span><a href="mailto:{{ site.email }}?subject=Project%20enquiry">{{ site.email }}</a></li>
-        {% if site.phone %}<li><span>Phone</span><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></li>{% endif %}
-        <li><span>LinkedIn</span><a href="{{ site.links.linkedin }}" rel="me noopener">linkedin.com/in/hussein-mohamed-852261174</a></li>
-        <li><span>Upwork</span><a href="{{ site.links.upwork }}" rel="me noopener">Hire me on Upwork</a></li>
-        <li><span>GitHub</span><a href="{{ site.links.github }}" rel="me noopener">github.com/hussein294</a></li>
-        <li><span>Hugging Face</span><a href="{{ site.links.huggingface }}" rel="me noopener">huggingface.co/husseinMohamed</a></li>
+        <li><span class="ha-label">Email</span><a href="mailto:{{ site.email }}?subject=Project%20enquiry">{{ site.email }}</a></li>
+        {% if site.phone %}<li><span class="ha-label">Phone</span><a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></li>{% endif %}
+        <li><span class="ha-label">LinkedIn</span><a href="{{ site.links.linkedin }}" rel="me noopener">linkedin.com/in/hussein-mohamed-852261174</a></li>
+        <li><span class="ha-label">Upwork</span><a href="{{ site.links.upwork }}" rel="me noopener">Hire me on Upwork</a></li>
+        <li><span class="ha-label">GitHub</span><a href="{{ site.links.github }}" rel="me noopener">github.com/hussein294</a></li>
+        <li><span class="ha-label">Hugging Face</span><a href="{{ site.links.huggingface }}" rel="me noopener">huggingface.co/husseinMohamed</a></li>
       </ul>
-      <p class="note" style="margin-top:1.5rem">{{ site.location }}. I work remotely, in English or Arabic, and overlap fully with European working hours and US mornings.</p>
+      <p class="note">{{ site.location }}. I work remotely, in English or Arabic, and overlap fully with European working hours and US mornings.</p>
     </div>
     <div>
-      <div class="panel" style="margin-bottom:1rem">
+      <div class="panel">
         <h2>Client projects</h2>
         <p>RAG and LLM apps, document AI, Arabic speech AI, Python backends, and training.</p>
-        <a class="btn" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email me about a project</a>
-        <p class="note" style="margin:0.8rem 0 0"><a href="{{ url('/services/') }}">See my services</a></p>
+        <a class="ha-btn ha-btn-primary" href="mailto:{{ site.email }}?subject=Project%20enquiry">Email me about a project</a>
+        <p class="note"><a href="{{ url('/services/') }}">See my services</a></p>
       </div>
       <div class="panel">
         <h2>Diploma registration</h2>
         <p>Enrolment and payment for both diplomas are handled by {{ site.ada.name }}.</p>
-        <a class="btn btn-ghost" href="{{ site.ada.url }}" rel="noopener">Register through ADA</a>
-        <p class="note" style="margin:0.8rem 0 0"><a href="{{ url('/courses/') }}">See the courses</a></p>
+        <a class="ha-btn" href="{{ site.ada.url }}" rel="noopener">Register through ADA</a>
+        <p class="note"><a href="{{ url('/courses/') }}">See the courses</a></p>
       </div>
     </div>
   </div>

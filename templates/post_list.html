@@ -1,12 +1,12 @@
 <ol class="post-list">
   {% for post in track.posts %}
-  <li{% if post.order == 999 %} class="no-num"{% endif %}>
-    {% if post.order != 999 %}<span class="num">{{ '%02d' | format(post.order) }}</span>{% endif %}
-    <div>
-      <a href="{{ url(post.path) }}">{{ post.title }}</a>
+  <li>
+    <article class="ha-card">
+      <p class="ha-label">{{ track.name }}{% if post.order != 999 %} · {{ '%02d' | format(post.order) }}{% endif %}</p>
+      <h3><a href="{{ url(post.path) }}">{{ post.title }}</a></h3>
       <p>{{ post.description }}</p>
-    </div>
-    <span class="mins">{{ post.minutes }} min read</span>
+      <p class="ha-meta">{% if post.order != 999 %}Part {{ post.order }} of {{ track.posts | length }} · {% endif %}{{ post.minutes }} min read · Free</p>
+    </article>
   </li>
   {% endfor %}
 </ol>

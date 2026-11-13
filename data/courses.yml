@@ -266,6 +266,8 @@ labels:
       run or endorsed by ADA.
     other_lang: العربية
     all_courses: All courses
+    taught_by: Taught by Hussein M. Al-Alfy, delivered through ADA Egypt
+    card_label: Diploma · through ADA Egypt
   ar:
     courses: الدبلومات
     courses_title: الدبلومات المدفوعة
@@ -291,3 +293,5 @@ labels:
       والدفع. هذا الموقع لا يستقبل مدفوعات، ولا تديره ADA ولا تعتمده.
     other_lang: English
     all_courses: كل الدبلومات
+    taught_by: يدرّسها حسين الألفي، وتُقدَّم من خلال ADA Egypt
+    card_label: دبلومة · من خلال ADA Egypt
