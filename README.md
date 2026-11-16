@@ -1,6 +1,6 @@
 # hussein294.github.io
 
-The personal website of Hussein Mohamed Al-Alfy: AI engineering services, two paid diplomas and free learning material.
+The personal website of Hussein Mohamed Al-Alfy: AI engineering services, two paid diplomas, short workshops and free learning material.
 
 The site is static. A small Python script (`build.py`) turns the templates and Markdown files into HTML, and GitHub publishes the result every time you push.
 
@@ -10,6 +10,7 @@ The site is static. A small Python script (`build.py`) turns the templates and M
 |---|---|
 | Name, email, phone, profile links, ADA link | `site.yml` |
 | Course dates, prices, course text (English and Arabic) | `data/courses.yml` |
+| Workshops: titles, dates, prices, outlines | `data/workshops.yml` |
 | A free-learning post | one Markdown file in `learn/<track>/` |
 | The list of free-learning tracks | `data/tracks.yml` |
 | Home, Services, Projects, About, Contact | `pages/*.html` |
@@ -111,6 +112,16 @@ price: { en: "EGP 0,000", ar: "0,000 جنيه" }
 ```
 
 While a value is empty, the page shows "To be announced" or "Ask ADA". The `status` line under each language says where the cohort stands; update it when a cohort starts. The registration link for both courses is `ada.url` in `site.yml`.
+
+## Update the workshops
+
+Everything on `/workshops/` and the "Workshops I teach" section of the home page comes from `data/workshops.yml`. The comment at the top of that file lists every field.
+
+- To publish a workshop's real details, fill in its `summary`, `objectives`, `prerequisites`, `curriculum`, `next_date` and `price`, then change `status: placeholder` to `status: ready`. That removes the "Outline coming" tag.
+- Anything left empty shows as "To be announced", and empty lists are left off the page.
+- Set `level` to `Beginner`, `Intermediate` or `Advanced` to show a level on the card. A level filter appears once two different levels are in use.
+- To add a workshop, copy one entry and give it a new `id`. To add a category, add it under `categories`; a category filter button appears for every category that has a workshop.
+- The "Request a seat" buttons open an email to the address in `site.yml`. The site does not take bookings or payments itself.
 
 ## Show or hide the phone number
 

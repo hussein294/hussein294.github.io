@@ -110,6 +110,25 @@
   <div class="wrap">
     <div class="section-head">
       <div>
+        <p class="ha-label">Workshops</p>
+        <h2>Workshops I teach</h2>
+      </div>
+      <a href="{{ url('/workshops/') }}">All workshops</a>
+    </div>
+    <p class="measure">Short, hands-on crash courses on one technology at a time, in at most {{ workshops.format.max_sessions }} sessions. You spend most of the time building.</p>
+    <ul class="tags">
+      {% for w in workshops.workshops %}
+      <li><a class="ha-tag ha-tag-plain" href="{{ url(w.path) }}">{{ w.title }}</a></li>
+      {% endfor %}
+    </ul>
+    <p class="actions"><a class="ha-btn" href="{{ url('/workshops/') }}">Browse the workshops</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
         <p class="ha-label">Free learning</p>
         <h2>Free interview preparation for AI engineers</h2>
       </div>

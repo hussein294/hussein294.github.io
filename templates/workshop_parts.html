@@ -1,0 +1,92 @@
+{# Shared pieces of a workshop: used by the preview panel on /workshops/ and by the workshop's own page. #}
+
+{% macro level_tag(w) %}
+<span class="ha-tag ha-tag-plain ws-level ws-level-{{ w.level_number }}"><span class="ws-pips" aria-hidden="true"><i></i><i></i><i></i></span>{{ w.level }}</span>
+{% endmacro %}
+
+{% macro tags(w) %}
+<ul class="tags">
+  <li><span class="ha-tag ha-tag-plain">{{ w.sessions_label }}</span></li>
+  {% if w.level %}<li>{{ level_tag(w) }}</li>{% endif %}
+  {% if w.status == 'placeholder' %}<li><span class="ha-tag ha-tag-plain">Outline coming</span></li>{% endif %}
+</ul>
+{% endmacro %}
+
+{% macro facts(w) %}
+<dl class="facts">
+  <div><dt>Sessions</dt><dd>{{ w.sessions_label }}</dd></div>
+  <div><dt>Session length</dt><dd>{{ w.session_length }}</dd></div>
+  {% if w.level %}<div><dt>Level</dt><dd>{{ w.level }}</dd></div>{% endif %}
+  <div><dt>Next date</dt><dd>{{ w.next_date or 'To be announced' }}</dd></div>
+  <div><dt>Price</dt><dd>{{ w.price or 'To be announced' }}</dd></div>
+</dl>
+{% endmacro %}
+
+{# The body of a workshop. `h` is the heading tag to use: h2 on the page, h3 in the panel. #}
+{% macro body(w, fmt, h) %}
+{% if w.description %}<p>{{ w.description }}</p>{% endif %}
+{% if w.status == 'placeholder' %}
+<p class="aside-note">The full outline for this workshop is not published yet. Send a request and I will reply with the outline and the dates once they are set.</p>
+{% endif %}
+
+{% if w.objectives %}
+<{{ h }}>What you will be able to do</{{ h }}>
+<ul>
+  {% for item in w.objectives %}<li>{{ item }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if w.prerequisites %}
+<{{ h }}>What you need beforehand</{{ h }}>
+<ul>
+  {% for item in w.prerequisites %}<li>{{ item }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+<{{ h }}>{{ 'Curriculum' if w.curriculum else 'How it runs' }}</{{ h }}>
+{% if w.curriculum %}
+<ol class="ws-sessions">
+  {% for session in w.curriculum %}
+  <li>
+    <p class="ha-label">Session {{ loop.index }}</p>
+    <p><strong>{{ session.title }}</strong></p>
+    {% if session.topics %}
+    <ul>
+      {% for topic in session.topics %}<li>{{ topic }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<ol class="ws-sessions">
+  {% for step in fmt.structure %}
+  <li>
+    <p class="ha-label">{{ step.title }}</p>
+    <p>{{ step.text }}</p>
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
+
+<{{ h }}>What you receive</{{ h }}>
+<ul>
+  {% for item in w.resources %}<li>{{ item }}</li>
+  {% endfor %}
+</ul>
+
+{% if w.faq %}
+<{{ h }}>Questions</{{ h }}>
+<div class="faq">
+  {% for item in w.faq %}
+  <details>
+    <summary>{{ item.q }}</summary>
+    <p>{{ item.a }}</p>
+  </details>
+  {% endfor %}
+</div>
+{% endif %}
+{% endmacro %}

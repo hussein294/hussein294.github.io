@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% import "workshop_parts.html" as parts %}
+{% set fmt = workshops.format %}
+{% block title %}{{ w.title }} workshop | {{ site.name }}{% endblock %}
+{% block description %}{{ w.summary }} {{ w.sessions_label }} of {{ w.session_length }}, taught by {{ site.name }}.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="ha-label"><a href="{{ url('/workshops/') }}" class="plain">Workshops</a> · {{ w.category_name }}</p>
+    <h1>{{ w.title }}</h1>
+    <p class="ha-label">Taught by Hussein M. Al-Alfy</p>
+    <p class="lead">{{ w.summary }}</p>
+    {{ parts.tags(w) }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>At a glance</h2>
+    {{ parts.facts(w) }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="ws-body">
+      {{ parts.body(w, fmt, 'h2') }}
+    </div>
+
+    <aside class="sticky">
+      <div class="panel">
+        <h2>Request a seat</h2>
+        <dl>
+          <dt>Next date</dt>
+          <dd>{{ w.next_date or 'To be announced' }}</dd>
+          <dt>Price</dt>
+          <dd>{{ w.price or 'To be announced' }}</dd>
+        </dl>
+        <a class="ha-btn" href="{{ w.request_url }}">Request a seat</a>
+        <p class="note">This opens an email to me. Booking is by request; this site does not take payments.</p>
+      </div>
+      <div class="panel">
+        <h2>Your instructor</h2>
+        <p>I am {{ site.name }}, a senior machine learning engineer with nearly five years shipping ML to production. I teach every workshop myself.</p>
+        <p><a class="ha-link" href="{{ url('/about/') }}">More about me</a></p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p><a href="{{ url('/workshops/') }}">All workshops</a></p>
+  </div>
+</section>
+{% endblock %}

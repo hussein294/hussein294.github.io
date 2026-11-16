@@ -54,7 +54,7 @@ document.documentElement.setAttribute('data-theme',t);})();
       <a href="{{ url('/') }}">الموقع بالإنجليزية</a>
       {% if alternate %}<a href="{{ url(alternate) }}" lang="en" dir="ltr">English</a>{% endif %}
       {% else %}
-      {% for label, target in [("Services", "/services/"), ("Courses", "/courses/"), ("Free learning", "/learn/"), ("Projects", "/projects/"), ("About", "/about/")] %}
+      {% for label, target in [("Services", "/services/"), ("Courses", "/courses/"), ("Workshops", "/workshops/"), ("Free learning", "/learn/"), ("Projects", "/projects/"), ("About", "/about/")] %}
       <a href="{{ url(target) }}"{% if page.path.startswith(target) %} aria-current="page"{% endif %}>{{ label }}</a>
       {% endfor %}
       {% if alternate %}<a href="{{ url(alternate) }}" lang="ar" dir="rtl">العربية</a>{% endif %}
@@ -89,6 +89,7 @@ document.documentElement.setAttribute('data-theme',t);})();
     <ul class="footer-links" {% if is_ar %}dir="ltr" lang="en"{% endif %}>
       <li><a href="{{ url('/services/') }}">Services</a></li>
       <li><a href="{{ url('/courses/') }}">Courses</a> · <a href="{{ url('/ar/courses/') }}" lang="ar">العربية</a></li>
+      <li><a href="{{ url('/workshops/') }}">Workshops</a></li>
       <li><a href="{{ url('/learn/') }}">Free learning</a></li>
       <li><a href="{{ url('/feed.xml') }}">RSS feed</a></li>
     </ul>

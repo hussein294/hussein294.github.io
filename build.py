@@ -5,7 +5,8 @@
     python build.py --preview  write links as .../index.html so pages open from disk
 
 Pages are Jinja templates in pages/. Posts are Markdown files in learn/<track>/.
-Course details live in data/courses.yml and site settings in site.yml.
+Course details live in data/courses.yml, workshops in data/workshops.yml and site
+settings in site.yml.
 """
 from __future__ import annotations
 
@@ -17,6 +18,7 @@ import posixpath
 import re
 import shutil
 from pathlib import Path
+from urllib.parse import quote
 
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
@@ -68,6 +70,7 @@ class Site:
         self.config = load_yaml(ROOT / "site.yml")
         self.courses = load_yaml(ROOT / "data" / "courses.yml")
         self.tracks = load_yaml(ROOT / "data" / "tracks.yml")
+        self.workshops = self.load_workshops()
         self.pages: list[dict] = []  # everything written, for the sitemap
         self.env = Environment(
             loader=FileSystemLoader([ROOT / "pages", ROOT / "templates"]),
@@ -118,6 +121,7 @@ class Site:
             site=self.config,
             courses=self.courses,
             tracks=self.tracks,
+            workshops=self.workshops,
             posts=self.posts,
             page=page,
             year=dt.date.today().year,
@@ -128,6 +132,62 @@ class Site:
         self.write(url_path, text, listed=listed)
 
     # ---- Content ----------------------------------------------------------
+    def load_workshops(self) -> dict:
+        """Read data/workshops.yml, check it and fill in what the templates need."""
+        path = ROOT / "data" / "workshops.yml"
+        data = load_yaml(path)
+        fmt = data["format"]
+        categories = {c["id"]: c["name"] for c in data["categories"]}
+        levels = ["Beginner", "Intermediate", "Advanced"]
+        seen = set()
+        for w in data["workshops"]:
+            where = f"{path.name}: workshop '{w.get('id')}'"
+            if not w.get("id") or not w.get("title"):
+                raise SystemExit(f"{where}: every workshop needs an id and a title.")
+            if w["id"] in seen:
+                raise SystemExit(f"{where}: this id is used twice.")
+            seen.add(w["id"])
+            if w.get("category") not in categories:
+                raise SystemExit(f"{where}: unknown category '{w.get('category')}'. Add it under categories.")
+            w["level"] = w.get("level") or ""
+            if w["level"] and w["level"] not in levels:
+                raise SystemExit(f"{where}: level must be one of {', '.join(levels)}, or empty.")
+            sessions = w.get("sessions")
+            if sessions is not None and not 1 <= sessions <= fmt["max_sessions"]:
+                raise SystemExit(f"{where}: sessions must be between 1 and {fmt['max_sessions']}.")
+            if w.get("status", "placeholder") not in ("placeholder", "ready"):
+                raise SystemExit(f"{where}: status must be placeholder or ready.")
+            w["status"] = w.get("status", "placeholder")
+            for key in ("summary", "description", "hours", "next_date", "price"):
+                w[key] = w.get(key) or ""
+            for key in ("objectives", "prerequisites", "curriculum", "faq", "tags"):
+                w[key] = w.get(key) or []
+            w["resources"] = w.get("resources") or fmt["resources"]
+            w["category_name"] = categories[w["category"]]
+            w["level_number"] = levels.index(w["level"]) + 1 if w["level"] else 0
+            w["path"] = f"/workshops/{w['id']}/"
+            w["session_length"] = w["hours"] or fmt["session_length"]
+            if sessions is None:
+                w["sessions_label"] = f"Up to {fmt['max_sessions']} sessions"
+            else:
+                w["sessions_label"] = "1 session" if sessions == 1 else f"{sessions} sessions"
+            body = (
+                f"Workshop: {w['title']}\n\n"
+                "Name:\n"
+                "Just me, or a team (how many people):\n"
+                "Dates or times that suit me:\n"
+                "Anything else:\n"
+            )
+            w["request_url"] = (
+                f"mailto:{self.config['email']}"
+                f"?subject={quote('Workshop request: ' + w['title'])}&body={quote(body)}"
+            )
+        data["levels"] = [lv for lv in levels if any(w["level"] == lv for w in data["workshops"])]
+        data["used_categories"] = [
+            c for c in data["categories"] if any(w["category"] == c["id"] for w in data["workshops"])
+        ]
+        return data
+
     def load_posts(self):
         posts = []
         track_ids = {t["id"] for t in self.tracks}
@@ -187,6 +247,10 @@ class Site:
                     lang=lang, course=course, c=course[lang],
                     alternate=f"{other}{course['id']}/",
                 )
+
+        # Workshops: the catalogue is pages/workshops.html; each workshop also gets its own page
+        for workshop in self.workshops["workshops"]:
+            self.render("workshop.html", workshop["path"], w=workshop)
 
         # Free learning
         self.render("learn_index.html", "/learn/")

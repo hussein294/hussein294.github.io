@@ -1,0 +1,159 @@
+# Workshops: short, hands-on crash courses. This file drives /workshops/ and the
+# "Workshops I teach" section on the home page.
+#
+# Publish only confirmed details. Anything left empty shows as "To be announced"
+# on the site, and empty lists (objectives, curriculum, FAQ ...) are simply left out.
+#
+# Fields for each workshop:
+#   id             the address: /workshops/<id>/
+#   title          the name on the card
+#   category       one of the ids under `categories` below
+#   status         placeholder (shows the "Outline coming" tag) or ready
+#   level          Beginner, Intermediate or Advanced. Empty = not shown.
+#   sessions       1 or 2. Empty = "Up to 2 sessions".
+#   hours          hours per session, for example "3 hours". Empty = the default in `format`.
+#   summary        one or two sentences for the card
+#   description    a longer paragraph for the detail view (optional)
+#   objectives     what a student can do afterwards (list)
+#   prerequisites  what a student needs beforehand (list)
+#   curriculum     a list of sessions, each with `title` and `topics` (list)
+#   resources      what students receive for this workshop, if it differs from `format.resources`
+#   faq            a list of `q` and `a`
+#   next_date      for example "14 January 2027". Empty = "To be announced".
+#   price          for example "EGP 0,000". Empty = "To be announced".
+#   tags           short keywords, used on the card
+
+format:
+  max_sessions: 2
+  session_length: 2 to 3 hours
+  # The standard shape of every workshop, shown on /workshops/ and in each preview.
+  structure:
+    - title: Before the workshop
+      text: You receive an installation guide, the prerequisites, the datasets and a starter repository, so the sessions start with working tools.
+    - title: Session 1
+      text: Why the technology matters, the core concepts, live coding and guided exercises.
+    - title: Session 2
+      text: A larger build, best practices, debugging and team exercises.
+  resources:
+    - Slides
+    - Live notebooks
+    - Source code in a GitHub repository
+    - Datasets
+    - A cheat sheet
+    - An installation guide
+    - Exercises and homework
+
+categories:
+  - id: llm-engineering
+    name: LLM engineering
+  - id: ai-tools
+    name: AI tools
+
+workshops:
+  - id: prompt-engineering
+    title: Prompt engineering
+    category: llm-engineering
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in prompt engineering.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []
+
+  - id: rag-systems
+    title: RAG systems
+    category: llm-engineering
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in building retrieval-augmented generation systems.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []
+
+  - id: agents
+    title: Agents
+    category: llm-engineering
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in building AI agents.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []
+
+  - id: automation
+    title: Automation
+    category: ai-tools
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in automating work with AI tools.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []
+
+  - id: image-generation
+    title: Image generation
+    category: ai-tools
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in generating images with AI tools.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []
+
+  - id: data-analysis
+    title: Data analysis
+    category: ai-tools
+    status: placeholder
+    level: ""
+    sessions:
+    hours: ""
+    summary: A hands-on crash course in analysing data with AI tools.
+    description: ""
+    objectives: []
+    prerequisites: []
+    curriculum: []
+    resources: []
+    faq: []
+    next_date: ""
+    price: ""
+    tags: []

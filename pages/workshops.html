@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% import "workshop_parts.html" as parts %}
+{% set fmt = workshops.format %}
+{% block title %}Workshops: short, hands-on AI crash courses | {{ site.name }}{% endblock %}
+{% block description %}Short, hands-on workshops taught by {{ site.name }}: one technology per workshop, at most {{ fmt.max_sessions }} sessions, most of the time spent building.{% endblock %}
+{% block content %}
+<section class="page-head">
+  <div class="wrap">
+    <p class="ha-label">Workshops</p>
+    <h1>Short workshops where you build the thing</h1>
+    <p class="lead">People rarely need another 40-hour course. They need to become productive with one technology fast. Each workshop is an intensive guided lab on a single tool or workflow, in at most {{ fmt.max_sessions }} sessions, and you spend most of the time building.</p>
+    <p class="note">I teach every workshop myself. Booking is by request, and this site does not take payments. For a full programme, see my <a href="{{ url('/courses/') }}">diplomas</a>.</p>
+  </div>
+</section>
+
+<section class="section" id="catalogue">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="ha-label">Catalogue</p>
+        <h2>Choose a workshop</h2>
+      </div>
+      <p class="note ws-count" id="ws-count" aria-live="polite">{{ workshops.workshops | length }} workshops</p>
+    </div>
+
+    {# The filters need JavaScript, so they stay hidden until workshops.js switches them on. #}
+    <div class="ws-filters" id="ws-filters" hidden>
+      {% if workshops.used_categories | length > 1 %}
+      <div class="ws-filter" role="group" aria-label="Filter by category">
+        <span class="ha-label">Category</span>
+        <button class="ws-chip" type="button" data-filter="category" data-value="" aria-pressed="true">All</button>
+        {% for category in workshops.used_categories %}
+        <button class="ws-chip" type="button" data-filter="category" data-value="{{ category.id }}" aria-pressed="false">{{ category.name }}</button>
+        {% endfor %}
+      </div>
+      {% endif %}
+      {% if workshops.levels | length > 1 %}
+      <div class="ws-filter" role="group" aria-label="Filter by level">
+        <span class="ha-label">Level</span>
+        <button class="ws-chip" type="button" data-filter="level" data-value="" aria-pressed="true">All</button>
+        {% for level in workshops.levels %}
+        <button class="ws-chip" type="button" data-filter="level" data-value="{{ level }}" aria-pressed="false">{{ level }}</button>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+
+    <ul class="cards" id="ws-grid">
+      {% for w in workshops.workshops %}
+      <li class="ws-item" data-category="{{ w.category }}" data-level="{{ w.level }}">
+        <article class="ha-card ws-card">
+          <p class="ha-label">{{ w.category_name }}</p>
+          <h3><a href="{{ url(w.path) }}" data-preview="ws-{{ w.id }}">{{ w.title }}</a></h3>
+          <p>{{ w.summary }}</p>
+          {{ parts.tags(w) }}
+          <p class="ha-meta">Next date: {{ w.next_date or 'to be announced' }}<br><a class="ha-link" href="{{ url(w.path) }}" data-preview="ws-{{ w.id }}">Preview {{ w.title }}</a></p>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="note" id="ws-empty" hidden>No workshop matches these filters.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="ha-label">Format</p>
+    <h2>How a workshop runs</h2>
+    <p class="measure">A workshop is not a lecture. Theory is there only to support what you build, and every workshop answers one question: what should someone build to truly understand this technology? Sessions run for about {{ fmt.session_length }}.</p>
+    <ol class="steps ws-steps">
+      {% for step in fmt.structure %}
+      <li><b>{{ step.title }}</b>{{ step.text }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2>What you receive</h2>
+      <ul class="ws-columns">
+        {% for item in fmt.resources %}<li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="panel">
+      <h2>Your instructor</h2>
+      <p>I am {{ site.name }}, a senior machine learning engineer with nearly five years shipping ML to production. I teach every workshop myself.</p>
+      <p><a class="ha-link" href="{{ url('/projects/') }}">See the projects</a> · <a class="ha-link" href="{{ url('/about/') }}">More about me</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section band-sunk">
+  <div class="wrap">
+    <h2>Ask for a workshop</h2>
+    <p class="lead">Tell me which workshop you want and whether it is for you or for a team. I will reply with the outline and the dates.</p>
+    <div class="actions">
+      <a class="ha-btn" href="mailto:{{ site.email }}?subject=Workshop%20request">Email {{ site.email }}</a>
+    </div>
+  </div>
+</section>
+
+{# One preview panel per workshop. workshops.js opens it; without JavaScript the cards link to the full pages. #}
+{% for w in workshops.workshops %}
+<dialog class="ws-panel" id="ws-{{ w.id }}" aria-labelledby="ws-{{ w.id }}-title">
+  <div class="ws-panel-inner">
+    <div class="ws-panel-head">
+      <p class="ha-label">{{ w.category_name }}</p>
+      <form method="dialog"><button class="ha-btn ws-close" type="submit">Close</button></form>
+    </div>
+    <h2 id="ws-{{ w.id }}-title">{{ w.title }}</h2>
+    <p class="lead">{{ w.summary }}</p>
+    {{ parts.tags(w) }}
+    {{ parts.facts(w) }}
+    <div class="ws-body">
+      {{ parts.body(w, fmt, 'h3') }}
+    </div>
+    <div class="ws-panel-foot">
+      <a class="ha-btn ha-btn-primary" href="{{ w.request_url }}">Request a seat</a>
+      <a class="ha-link" href="{{ url(w.path) }}">Open the full page</a>
+      <p class="note">The button opens an email to me. This site does not take payments.</p>
+    </div>
+  </div>
+</dialog>
+{% endfor %}
+<script src="{{ url('/js/workshops.js') }}" defer></script>
+{% endblock %}

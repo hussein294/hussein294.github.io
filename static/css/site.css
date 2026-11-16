@@ -194,3 +194,47 @@ a.plain:hover { text-decoration: underline; }
 .section > .wrap > p:last-child { margin-bottom: 0; }
 .panel .ha-btn + .note { margin: var(--space-3) 0 0; }
 .ha-card .facts { margin-top: var(--space-2); }
+
+/* Workshops: catalogue filters, cards and the slide-in preview panel */
+.ws-filters[hidden], .ws-item[hidden] { display: none; }
+.ws-filters { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-12); margin-bottom: var(--space-8); }
+.ws-filter { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+.ws-filter .ha-label { margin-inline-end: var(--space-2); }
+.ws-chip { height: 36px; padding: 0 var(--space-4); font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--ink); background: none; border: var(--rule-width) solid var(--border); border-radius: var(--radius-md); cursor: pointer; }
+.ws-chip:hover { border-color: var(--ink); }
+.ws-chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--surface); }
+.ws-count { margin: 0; }
+.ws-card .tags { margin-top: auto; }
+.ws-card .ha-meta { margin-top: 0; }
+.page-head .tags { margin-top: var(--space-6); }
+.ws-level { gap: var(--space-2); }
+.ws-pips { display: inline-flex; gap: 2px; }
+.ws-pips i { display: block; width: 5px; height: 10px; border: var(--rule-width) solid var(--ink); }
+.ws-level-1 .ws-pips i:nth-child(-n+1), .ws-level-2 .ws-pips i:nth-child(-n+2), .ws-level-3 .ws-pips i { background: var(--ink); }
+.ws-steps { margin-top: var(--space-8); }
+.ws-columns { columns: 2 220px; column-gap: var(--space-12); max-width: var(--measure); }
+.ws-sessions { list-style: none; padding: 0; margin: 0 0 var(--space-4); max-width: var(--measure); }
+.ws-sessions > li { margin: 0; padding: var(--space-3) 0; border-top: var(--rule-width) solid var(--rule); }
+.ws-sessions .ha-label { margin-bottom: var(--space-1); }
+.ws-sessions p:last-child, .ws-sessions ul:last-child { margin-bottom: 0; }
+.ws-body .aside-note { margin-bottom: var(--space-8); }
+.split > .ws-body > h2:not(:first-child) { margin-top: var(--space-12); }
+
+html:has(dialog.ws-panel[open]) { overflow: hidden; }
+.ws-panel { position: fixed; inset-block: 0; inset-inline: auto 0; width: min(100%, 560px); height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; overflow-y: auto; overscroll-behavior: contain; background: var(--surface); color: var(--ink); border: 0; border-inline-start: var(--rule-width) solid var(--border); }
+.ws-panel::backdrop { background: color-mix(in srgb, var(--board) 60%, transparent); }
+.ws-panel[open] { animation: ws-slide-in 200ms ease-out; }
+@keyframes ws-slide-in { from { transform: translateX(100%); } }
+@media (prefers-reduced-motion: reduce) { .ws-panel[open] { animation: none; } }
+.ws-panel-inner { padding: var(--space-6) var(--space-8) 0; }
+.ws-panel-head { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); margin-bottom: var(--space-6); }
+.ws-close { height: 36px; padding: 0 var(--space-4); }
+.ws-panel h2 { margin-bottom: var(--space-3); }
+.ws-panel .lead { font-size: 17px; line-height: 28px; }
+.ws-panel .facts { margin-block: var(--space-6); }
+.ws-panel h3 { margin-top: var(--space-8); margin-bottom: var(--space-2); }
+.ws-panel-foot { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-6); margin: var(--space-8) calc(-1 * var(--space-8)) 0; padding: var(--space-4) var(--space-8); background: var(--surface-raised); border-top: var(--rule-width) solid var(--rule); }
+.ws-panel-foot .note { flex-basis: 100%; margin: 0; }
+@media (max-width: 640px) { .ws-panel-inner { padding-inline: var(--space-6); } .ws-panel-foot { margin-inline: calc(-1 * var(--space-6)); padding-inline: var(--space-6); } }
+a.ha-tag { text-decoration: none; }
+a.ha-tag:hover { border-color: var(--ink); }
