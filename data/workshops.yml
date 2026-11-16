@@ -50,110 +50,296 @@ categories:
     name: AI tools
 
 workshops:
-  - id: prompt-engineering
-    title: Prompt engineering
-    category: llm-engineering
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in prompt engineering.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
-
-  - id: rag-systems
-    title: RAG systems
-    category: llm-engineering
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in building retrieval-augmented generation systems.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
-
-  - id: agents
-    title: Agents
-    category: llm-engineering
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in building AI agents.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
-
-  - id: automation
-    title: Automation
-    category: ai-tools
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in automating work with AI tools.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
-
-  - id: image-generation
-    title: Image generation
-    category: ai-tools
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in generating images with AI tools.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
-
-  - id: data-analysis
-    title: Data analysis
-    category: ai-tools
-    status: placeholder
-    level: ""
-    sessions:
-    hours: ""
-    summary: A hands-on crash course in analysing data with AI tools.
-    description: ""
-    objectives: []
-    prerequisites: []
-    curriculum: []
-    resources: []
-    faq: []
-    next_date: ""
-    price: ""
-    tags: []
+- id: prompt-engineering
+  title: Prompt engineering
+  category: llm-engineering
+  status: ready
+  level: Beginner
+  sessions: 2
+  hours: ''
+  summary: Write prompts that give the same good answer every time. You build a tested prompt library for a support-ticket
+    assistant.
+  description: Most prompt advice is a list of tricks. This workshop treats a prompt as something you design, test
+    and version, the way you would treat code. You start from one real task, a support-ticket assistant, and finish
+    with prompts you have measured rather than prompts that looked good once.
+  objectives:
+  - Structure a prompt into role, context, task, examples and output format
+  - Get reliable JSON out of a model with structured outputs
+  - Use few-shot examples and step-by-step reasoning where they help, and skip them where they do not
+  - Build a small test set and score prompt versions against it
+  - Recognise prompt injection and reduce the damage it can do
+  prerequisites:
+  - 'Basic Python: you can run a script and read a function'
+  - Access to one LLM API. The installation guide lists the options
+  curriculum:
+  - title: From a rough prompt to a designed one
+    topics:
+    - How a model reads a prompt, and why small wording changes matter
+    - 'The parts of a prompt: role, context, task, examples, output format'
+    - Few-shot examples and when reasoning steps help
+    - 'Structured outputs: getting valid JSON every time'
+    - 'Exercise: classify and summarise support tickets'
+  - title: Testing prompts like code
+    topics:
+    - Building a test set from real cases and edge cases
+    - 'Scoring outputs: exact checks, rubrics and a model as judge'
+    - Comparing prompt versions and keeping a changelog
+    - Chaining prompts for a multi-step task
+    - 'Prompt injection: how it works and basic defences'
+    - 'Team exercise: ship the tested prompt library'
+  resources: []
+  faq:
+  - q: Is this only about chat assistants?
+    a: No. The exercises call a model through its API, because that is where reliability matters, but everything
+      applies to chat tools as well.
+  - q: Which model do we use?
+    a: The techniques work across models. The installation guide lists the options, and you can follow along with
+      the one you already use.
+  next_date: ''
+  price: ''
+  tags: []
+- id: rag-systems
+  title: RAG systems
+  category: llm-engineering
+  status: ready
+  level: Intermediate
+  sessions: 2
+  hours: ''
+  summary: Build a question-answering system over your own documents that answers with sources, then measure it
+    and fix what fails.
+  description: 'A RAG demo takes an afternoon. A RAG system people trust takes knowing where it fails. You build
+    the whole pipeline yourself in the first session, then spend the second one evaluating it and repairing the
+    usual failures: wrong chunks, missed documents and answers that go beyond the sources.'
+  objectives:
+  - 'Build the full pipeline: ingestion, chunking, embeddings, retrieval and grounded generation'
+  - Return answers with citations, and decline when the documents do not contain the answer
+  - Improve retrieval with hybrid search and reranking
+  - Measure retrieval and answer quality with a small evaluation set
+  - Diagnose a bad answer by tracing it back to the step that caused it
+  prerequisites:
+  - Working Python, including virtual environments and installing packages
+  - You have called an API from code before
+  - Access to one LLM API. The installation guide lists the options
+  curriculum:
+  - title: A working pipeline, end to end
+    topics:
+    - 'Why retrieval: what a model knows and what it does not'
+    - Loading and chunking documents, and how chunk size changes the results
+    - Embeddings and a vector database
+    - Retrieval, prompt assembly and answers with citations
+    - 'Exercise: ask questions over a document set you bring'
+  - title: Making it trustworthy
+    topics:
+    - Building an evaluation set of questions and expected sources
+    - 'Retrieval metrics: recall, precision and ranking quality'
+    - Hybrid search and reranking
+    - Checking that answers stay faithful to the sources
+    - 'Debugging: the common failures and how to trace each one'
+    - 'Team exercise: find and fix the three worst answers'
+  resources: []
+  faq:
+  - q: Can I use my own documents?
+    a: Yes. Bring a set of PDFs or text files you are allowed to use. A sample dataset is provided if you prefer.
+  - q: Do I need a GPU?
+    a: No. Everything runs on a normal laptop with an LLM API.
+  next_date: ''
+  price: ''
+  tags: []
+- id: agents
+  title: Agents
+  category: llm-engineering
+  status: ready
+  level: Intermediate
+  sessions: 2
+  hours: ''
+  summary: Build a research assistant agent that plans, calls tools and checks its own work, first from scratch
+    and then with a framework.
+  description: Agents are easier to reason about once you have written the loop yourself. In the first session you
+    build an agent with nothing but an LLM API and a few Python functions. In the second you rebuild it with LangGraph,
+    connect a tool over MCP, and add the limits and tracing that make it safe to run.
+  objectives:
+  - Explain what an agent is in terms of a model, tools and a loop
+  - Define tools and let a model call them with validated arguments
+  - Write the agent loop yourself, including stopping conditions and error handling
+  - Rebuild the agent as a graph with state in LangGraph
+  - Expose and use a tool through MCP
+  - Add guardrails, step and cost limits, and tracing
+  prerequisites:
+  - Working Python, including functions, classes and type hints
+  - You have called an LLM API from code before
+  - Access to one LLM API that supports tool calling
+  curriculum:
+  - title: An agent from scratch
+    topics:
+    - 'Model, tools, loop: the three parts'
+    - Tool calling and structured arguments
+    - 'Writing the loop: plan, act, observe, stop'
+    - Memory and state within one task
+    - 'Exercise: a research assistant that searches, reads and summarises'
+  - title: An agent you can run for real
+    topics:
+    - The same agent as a graph in LangGraph
+    - Connecting a tool through MCP
+    - Guardrails, human approval and limits on steps and cost
+    - Tracing a run and reading what went wrong
+    - Evaluating an agent on a set of tasks
+    - 'Team exercise: break another team''s agent, then fix your own'
+  resources: []
+  faq:
+  - q: Why build it from scratch first?
+    a: Because a framework hides the loop. Once you have written it yourself, you can tell what any framework is
+      doing and debug it when it misbehaves.
+  - q: Should I take the prompt engineering workshop first?
+    a: It helps but is not required. You should already be comfortable calling an LLM API from Python.
+  next_date: ''
+  price: ''
+  tags: []
+- id: automation
+  title: Automation
+  category: ai-tools
+  status: ready
+  level: Beginner
+  sessions: 2
+  hours: ''
+  summary: Automate a repetitive task from start to finish. You build a workflow that reads incoming requests, extracts
+    the details, drafts a reply and waits for your approval.
+  description: This workshop is for people who do the same sorting, copying and replying every day. You map one
+    real process, build it as an automated workflow with an AI step in the middle, and add the checks that keep
+    a person in control of anything that gets sent.
+  objectives:
+  - Map a manual process and decide which steps are worth automating
+  - Build a workflow with a trigger, steps, conditions and an AI step
+  - Use a model to classify messages and extract fields reliably
+  - Add a human approval step before anything is sent
+  - 'Handle failures: retries, alerts and a log you can read'
+  prerequisites:
+  - No programming needed
+  - Comfort with spreadsheets and email
+  - The setup guide lists the accounts to create before the first session
+  curriculum:
+  - title: From a manual process to a first workflow
+    topics:
+    - Choosing what to automate, and what to leave alone
+    - Triggers, steps, conditions and data passing between steps
+    - 'Adding an AI step: classify a message and extract its details'
+    - Writing results to a spreadsheet
+    - 'Exercise: incoming requests sorted and logged automatically'
+  - title: A workflow you can leave running
+    topics:
+    - Drafting replies with a model
+    - Human approval before sending
+    - Errors, retries and alerts
+    - Keeping private data out of places it should not go
+    - What it costs to run and how to keep it low
+    - 'Team exercise: automate a process from your own work'
+  resources: &id001
+  - Slides
+  - The finished project files
+  - A cheat sheet
+  - A setup guide
+  - Exercises and homework
+  faq:
+  - q: Do I need to write code?
+    a: No. The workflow is built visually. A little code is shown as an option for people who want it.
+  - q: Can I automate something from my own job?
+    a: Yes, that is the last exercise. Bring a process you repeat often and are allowed to share.
+  next_date: ''
+  price: ''
+  tags: []
+- id: image-generation
+  title: Image generation
+  category: ai-tools
+  status: ready
+  level: Beginner
+  sessions: 2
+  hours: ''
+  summary: 'Go from one lucky image to a consistent set. You build a small visual identity: a style, a recurring
+    subject and a dozen images that belong together.'
+  description: Getting one good image is easy. Getting twelve that look like they come from the same hand is the
+    real skill. You learn how image models read a prompt, then build a consistent set for a product or project of
+    your choice and finish it with editing and upscaling.
+  objectives:
+  - Write image prompts that control subject, composition, lighting and style
+  - Keep a style and a subject consistent across many images
+  - Use reference images to guide a result
+  - Fix parts of an image with inpainting and extend it with outpainting
+  - Upscale and prepare images for print and screen
+  - Know the basics of usage rights for generated images
+  prerequisites:
+  - No programming or design background needed
+  - The setup guide lists the tools to prepare before the first session
+  curriculum:
+  - title: Controlling the image
+    topics:
+    - How an image model turns text into a picture
+    - 'The parts of an image prompt: subject, composition, lighting, style'
+    - 'Settings that matter: aspect ratio, seed and variations'
+    - Negative prompts and common failures
+    - 'Exercise: one subject in five deliberate styles'
+  - title: A consistent set
+    topics:
+    - Defining a style you can repeat
+    - Keeping a subject consistent with reference images
+    - Inpainting and outpainting
+    - Upscaling and exporting
+    - Usage rights and disclosure
+    - 'Team exercise: a twelve-image set for one product or project'
+  resources: *id001
+  faq:
+  - q: Do I need a powerful computer?
+    a: No. The exercises are designed to work on a normal laptop.
+  - q: Do I need to be able to draw?
+    a: No. An eye for what you want helps more than drawing skill.
+  next_date: ''
+  price: ''
+  tags: []
+- id: data-analysis
+  title: Data analysis
+  category: ai-tools
+  status: ready
+  level: Beginner
+  sessions: 2
+  hours: ''
+  summary: Analyse a messy dataset with an AI assistant and check every answer it gives. You build a reproducible
+    notebook and a short report.
+  description: 'An AI assistant can write the analysis code for you, and it can also be confidently wrong. This
+    workshop teaches both halves: asking for the analysis and verifying it. You take a messy real-world dataset
+    from raw file to a short report whose every number you can defend.'
+  objectives:
+  - Turn a business question into questions the data can answer
+  - Use an AI assistant to load, clean and explore a dataset
+  - Read the pandas code it writes well enough to catch mistakes
+  - Verify results with spot checks and totals that must agree
+  - Choose a chart that shows the point and build it
+  - Deliver a notebook someone else can rerun
+  prerequisites:
+  - 'Comfort with spreadsheets: filters, sorting and simple formulas'
+  - No Python needed, though a little helps
+  - The installation guide covers the setup before the first session
+  curriculum:
+  - title: From a raw file to answers
+    topics:
+    - Asking good questions of a dataset
+    - Loading and inspecting data with an assistant
+    - 'Cleaning: missing values, duplicates, wrong types'
+    - Grouping, filtering and summarising
+    - Reading generated pandas code line by line
+    - 'Exercise: five questions answered from a messy sales dataset'
+  - title: Answers you can defend
+    topics:
+    - How assistants get analysis wrong, with examples
+    - 'Verification: spot checks, totals and a second method'
+    - Charts that show the point
+    - Making the notebook reproducible
+    - Writing a one-page report
+    - 'Team exercise: analyse a new dataset and present one finding'
+  resources: []
+  faq:
+  - q: I only know Excel. Is that enough?
+    a: Yes. You start from spreadsheet thinking and the assistant writes the code. You learn to read it, not to
+      write it from memory.
+  - q: Can I bring my own data?
+    a: Yes, if you are allowed to share it. A sample dataset is provided for everyone.
+  next_date: ''
+  price: ''
+  tags: []

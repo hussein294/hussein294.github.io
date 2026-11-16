@@ -238,3 +238,4 @@ html:has(dialog.ws-panel[open]) { overflow: hidden; }
 @media (max-width: 640px) { .ws-panel-inner { padding-inline: var(--space-6); } .ws-panel-foot { margin-inline: calc(-1 * var(--space-6)); padding-inline: var(--space-6); } }
 a.ha-tag { text-decoration: none; }
 a.ha-tag:hover { border-color: var(--ink); }
+.ws-panel .facts div:last-child:nth-child(odd) { grid-column: 1 / -1; }
