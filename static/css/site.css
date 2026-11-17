@@ -239,3 +239,9 @@ html:has(dialog.ws-panel[open]) { overflow: hidden; }
 a.ha-tag { text-decoration: none; }
 a.ha-tag:hover { border-color: var(--ink); }
 .ws-panel .facts div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+/* Workshops "coming soon": greyed out until bookings_open is true in data/workshops.yml */
+.ws-soon .ws-card, .ws-soon .ha-tag { color: var(--ink-muted); background: var(--surface-sunk); border-color: var(--rule); }
+.ws-soon .ws-card h3, .ws-soon .ws-card h3 a, .ws-soon .ws-card a { color: var(--ink-muted); }
+.ws-soon .ws-pips i { border-color: var(--ink-muted); }
+.ws-soon .ws-level-1 .ws-pips i:nth-child(-n+1), .ws-soon .ws-level-2 .ws-pips i:nth-child(-n+2), .ws-soon .ws-level-3 .ws-pips i { background: var(--ink-muted); }

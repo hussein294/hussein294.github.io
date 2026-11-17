@@ -72,7 +72,7 @@
 <section class="section">
   <div class="wrap">
     <p class="ha-label">Shipped to production</p>
-    <h2>Nearly five years of ML in production</h2>
+    <h2>ML in production</h2>
     <ul class="stats">
       <li><b>6 languages</b><span>One speech-recognition system for an international client, replacing separate pipelines per language.</span></li>
       <li><b>100K+ documents a day</b><span>A document-extraction platform running real-time and batch paths at sub-second latency.</span></li>
@@ -110,18 +110,19 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <p class="ha-label">Workshops</p>
+        <p class="ha-label">Workshops{% if not workshops.open %} · Coming soon{% endif %}</p>
         <h2>Workshops I teach</h2>
       </div>
       <a href="{{ url('/workshops/') }}">All workshops</a>
     </div>
-    <p class="measure">Short, hands-on crash courses on one technology at a time, in at most {{ workshops.format.max_sessions }} sessions. You spend most of the time building.</p>
-    <ul class="tags">
+    <p class="measure">Short, hands-on crash courses on one technology at a time, in at most {{ workshops.format.max_sessions }} sessions. You spend most of the time building.{% if not workshops.open %} I am not taking requests yet; follow me on <a href="{{ site.links.linkedin }}">LinkedIn</a> to hear when they open.{% endif %}</p>
+    <ul class="tags{% if not workshops.open %} ws-soon{% endif %}">
       {% for w in workshops.workshops %}
       <li><a class="ha-tag ha-tag-plain" href="{{ url(w.path) }}">{{ w.title }}</a></li>
       {% endfor %}
     </ul>
-    <p class="actions"><a class="ha-btn" href="{{ url('/workshops/') }}">Browse the workshops</a></p>
+    {% if workshops.open %}<p class="actions"><a class="ha-btn" href="{{ url('/workshops/') }}">Browse the workshops</a></p>
+    {% else %}<p class="actions"><a href="{{ url('/workshops/') }}">Preview the workshops</a></p>{% endif %}
   </div>
 </section>
 

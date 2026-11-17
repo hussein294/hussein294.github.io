@@ -23,6 +23,10 @@
 #   price          for example "EGP 0,000". Empty = "To be announced".
 #   tags           short keywords, used on the card
 
+# false = "Coming soon": workshops are shown greyed out, with no "Request a seat"
+# buttons. Set to true when you are ready to take requests.
+bookings_open: false
+
 format:
   max_sessions: 2
   session_length: 2 to 3 hours

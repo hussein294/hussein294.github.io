@@ -182,6 +182,7 @@ class Site:
                 f"mailto:{self.config['email']}"
                 f"?subject={quote('Workshop request: ' + w['title'])}&body={quote(body)}"
             )
+        data["open"] = bool(data.get("bookings_open", False))
         data["levels"] = [lv for lv in levels if any(w["level"] == lv for w in data["workshops"])]
         data["used_categories"] = [
             c for c in data["categories"] if any(w["category"] == c["id"] for w in data["workshops"])

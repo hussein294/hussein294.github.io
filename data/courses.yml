@@ -257,8 +257,8 @@ labels:
     status: Status
     instructor: Your instructor
     instructor_text: >-
-      I am Hussein Mohamed Al-Alfy, a senior machine learning engineer with nearly
-      five years shipping ML to production. I designed this curriculum and I teach it.
+      I am Hussein Mohamed Al-Alfy, a senior machine learning engineer who
+      ships ML to production. I designed this curriculum and I teach it.
     about_me: More about me
     disclaimer: >-
       This is my personal website. The diplomas are delivered through ADA, which
@@ -285,8 +285,8 @@ labels:
     status: الحالة
     instructor: من يدرّس؟
     instructor_text: >-
-      أنا حسين محمد الألفي، مهندس تعلّم آلة أول، أعمل منذ ما يقارب خمس سنوات على
-      أنظمة تعلّم آلة تعمل في بيئة الإنتاج. صمّمتُ هذا المنهج وأدرّسه بنفسي.
+      أنا حسين محمد الألفي، مهندس تعلّم آلة أول، أبني أنظمة تعلّم آلة
+      تعمل في بيئة الإنتاج. صمّمتُ هذا المنهج وأدرّسه بنفسي.
     about_me: تعرّف عليّ أكثر (بالإنجليزية)
     disclaimer: >-
       هذا موقعي الشخصي. تُقدَّم الدبلومات من خلال ADA، وهي التي تتولى التسجيل

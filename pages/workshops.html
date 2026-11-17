@@ -6,10 +6,14 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="ha-label">Workshops</p>
+    <p class="ha-label">Workshops{% if not workshops.open %} · Coming soon{% endif %}</p>
     <h1>Short workshops where you build the thing</h1>
     <p class="lead">People rarely need another 40-hour course. They need to become productive with one technology fast. Each workshop is an intensive guided lab on a single tool or workflow, in at most {{ fmt.max_sessions }} sessions, and you spend most of the time building.</p>
+    {% if workshops.open %}
     <p class="note">I teach every workshop myself. Booking is by request, and this site does not take payments. For a full programme, see my <a href="{{ url('/courses/') }}">diplomas</a>.</p>
+    {% else %}
+    <p class="aside-note"><strong>Coming soon.</strong> I am preparing the first workshops and not taking requests yet. Follow me on <a href="{{ site.links.linkedin }}">LinkedIn</a> to hear when they open. For a full programme now, see my <a href="{{ url('/courses/') }}">diplomas</a>.</p>
+    {% endif %}
   </div>
 </section>
 
@@ -45,7 +49,7 @@
       {% endif %}
     </div>
 
-    <ul class="cards" id="ws-grid">
+    <ul class="cards{% if not workshops.open %} ws-soon{% endif %}" id="ws-grid">
       {% for w in workshops.workshops %}
       <li class="ws-item" data-category="{{ w.category }}" data-level="{{ w.level }}">
         <article class="ha-card ws-card">
@@ -53,7 +57,7 @@
           <h3><a href="{{ url(w.path) }}" data-preview="ws-{{ w.id }}">{{ w.title }}</a></h3>
           <p>{{ w.summary }}</p>
           {{ parts.tags(w) }}
-          <p class="ha-meta">Next date: {{ w.next_date or 'to be announced' }}<br><a class="ha-link" href="{{ url(w.path) }}" data-preview="ws-{{ w.id }}">Preview {{ w.title }}</a></p>
+          <p class="ha-meta">{% if workshops.open %}Next date: {{ w.next_date or 'to be announced' }}{% else %}Coming soon{% endif %}<br><a class="ha-link" href="{{ url(w.path) }}" data-preview="ws-{{ w.id }}">Preview {{ w.title }}</a></p>
         </article>
       </li>
       {% endfor %}
@@ -86,7 +90,7 @@
     </div>
     <div class="panel">
       <h2>Your instructor</h2>
-      <p>I am {{ site.name }}, a senior machine learning engineer with nearly five years shipping ML to production. I teach every workshop myself.</p>
+      <p>I am {{ site.name }}, a senior machine learning engineer who ships ML to production. I teach every workshop myself.</p>
       <p><a class="ha-link" href="{{ url('/projects/') }}">See the projects</a> · <a class="ha-link" href="{{ url('/about/') }}">More about me</a></p>
     </div>
   </div>
@@ -94,11 +98,19 @@
 
 <section class="section band-sunk">
   <div class="wrap">
+    {% if workshops.open %}
     <h2>Ask for a workshop</h2>
     <p class="lead">Tell me which workshop you want and whether it is for you or for a team. I will reply with the outline and the dates.</p>
     <div class="actions">
       <a class="ha-btn" href="mailto:{{ site.email }}?subject=Workshop%20request">Email {{ site.email }}</a>
     </div>
+    {% else %}
+    <h2>Workshops are coming soon</h2>
+    <p class="lead">I am not taking requests yet. I will announce the first dates on LinkedIn.</p>
+    <div class="actions">
+      <a class="ha-btn" href="{{ site.links.linkedin }}">Follow me on LinkedIn</a>
+    </div>
+    {% endif %}
   </div>
 </section>
 
@@ -118,9 +130,15 @@
       {{ parts.body(w, fmt, 'h3') }}
     </div>
     <div class="ws-panel-foot">
+      {% if workshops.open %}
       <a class="ha-btn ha-btn-primary" href="{{ w.request_url }}">Request a seat</a>
       <a class="ha-link" href="{{ url(w.path) }}">Open the full page</a>
       <p class="note">The button opens an email to me. This site does not take payments.</p>
+      {% else %}
+      <span class="ha-tag ha-tag-plain">Coming soon</span>
+      <a class="ha-link" href="{{ url(w.path) }}">Open the full page</a>
+      <p class="note">I am not taking requests yet. Follow me on <a href="{{ site.links.linkedin }}">LinkedIn</a> to hear when they open.</p>
+      {% endif %}
     </div>
   </div>
 </dialog>

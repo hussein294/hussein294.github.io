@@ -6,7 +6,7 @@
 {% block content %}
 <section class="page-head">
   <div class="wrap">
-    <p class="ha-label"><a href="{{ url('/workshops/') }}" class="plain">Workshops</a> · {{ w.category_name }}</p>
+    <p class="ha-label"><a href="{{ url('/workshops/') }}" class="plain">Workshops</a> · {{ w.category_name }}{% if not workshops.open %} · Coming soon{% endif %}</p>
     <h1>{{ w.title }}</h1>
     <p class="ha-label">Taught by Hussein M. Al-Alfy</p>
     <p class="lead">{{ w.summary }}</p>
@@ -28,6 +28,7 @@
     </div>
 
     <aside class="sticky">
+      {% if workshops.open %}
       <div class="panel">
         <h2>Request a seat</h2>
         <dl>
@@ -39,9 +40,16 @@
         <a class="ha-btn" href="{{ w.request_url }}">Request a seat</a>
         <p class="note">This opens an email to me. Booking is by request; this site does not take payments.</p>
       </div>
+      {% else %}
+      <div class="panel ws-soon-panel">
+        <h2>Coming soon</h2>
+        <p>I am not taking requests for this workshop yet. Dates and price will be announced on LinkedIn.</p>
+        <a class="ha-btn" href="{{ site.links.linkedin }}">Follow me on LinkedIn</a>
+      </div>
+      {% endif %}
       <div class="panel">
         <h2>Your instructor</h2>
-        <p>I am {{ site.name }}, a senior machine learning engineer with nearly five years shipping ML to production. I teach every workshop myself.</p>
+        <p>I am {{ site.name }}, a senior machine learning engineer who ships ML to production. I teach every workshop myself.</p>
         <p><a class="ha-link" href="{{ url('/about/') }}">More about me</a></p>
       </div>
     </aside>
